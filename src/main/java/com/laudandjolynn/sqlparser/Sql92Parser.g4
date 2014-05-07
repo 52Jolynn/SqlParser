@@ -8,3 +8,11 @@ options {
     tokenVocab=Sql92CommonLexer;
 }
 
+parse : ddl
+	| dml
+	| dcl
+	;
+	
+ddl :;
+dml :;
+dcl :;	

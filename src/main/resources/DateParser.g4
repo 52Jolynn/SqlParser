@@ -9,9 +9,9 @@ options {
     tokenVocab=DateLexer;
 }
 
-date : DATE_RULE;
-time : TIME_STRING;
-datetime : date time;
-timestamp : TIMESTAMP_STRING;
-interval : INTERVAL_STRING;
-day_time : DAY_TIME_LITERAL;
+date_string : DATE_STRING;
+time_string : TIME_STRING;
+datetime : date_string time_string;
+timestamp_string : TIMESTAMP_STRING;
+interval_string : INTERVAL_STRING;
+day_time_literal : DAY_TIME_LITERAL;

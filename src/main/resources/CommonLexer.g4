@@ -6,20 +6,16 @@
 lexer grammar CommonLexer;
 
 //数字
-NUMBER : MINUS_SIGN? UNSIGNED_INTEGER EXPONENT? //1, -1, 1e10, -1e10, 1e-10, -1e-10
-       | MINUS_SIGN? FLOAT //1.0, -1.0, 1.2e10, -1.2e10, 1.2e-10, -1.2e-10
-       ;
-
-SIGNED_INTEGER : NUM_SIGN UNSIGNED_INTEGER;//有符号整数
-UNSIGNED_INTEGER : '0' | [1-9] [0-9]*;//无符号整数
-FLOAT : UNSIGNED_INTEGER '.' UNSIGNED_INTEGER EXPONENT?;//正浮点数
-EXPONENT : [Ee] NUM_SIGN? UNSIGNED_INTEGER;//指数
+UNSIGNED_INTEGER : '0' | [1-9] [0-9]*; //无符号整数
+SIGNED_INTEGER : SIGN UNSIGNED_INTEGER; //有符号整数
+UNSIGNED_NUMERIC_LITERAL : EXACT_NUMERIC_LITERAL|APPROXIMATE_NUMERIC_LITERAL; //无符号数
+SIGNED_NUMERIC_LITERAL : SIGN? UNSIGNED_NUMERIC_LITERAL;//有符号数
 
 SPACE : ' '; //空格
 TAB : '\t'; //tab
 NEWLINE : '\r'? '\n';//换行符
 
-NUM_SIGN : PLUS_SIGN | MINUS_SIGN;
+SIGN : PLUS_SIGN | MINUS_SIGN;//正负号
 PLUS_SIGN : '+';
 MINUS_SIGN : '-';
 
@@ -37,8 +33,11 @@ SOLIDUS : '/';
 COLON : ':';
 SEMICOLON : ';';
 LESS_THAN : '<';
+LESS_THAN_OR_EQ : '<=';
 EQ : '=';
+NOT_EQ : '<>'|'!=';
 GREATER_THAN : '>';
+GREATER_THAN_OR_EQ : '>=';
 QUESTION_MARK : '?';
 UNDERSCORE : '_';
 VERTICAL_BAR : '|';
@@ -59,10 +58,17 @@ fragment
 fragment
     HEX : [0-9a-fA-F]; //十六进制
 fragment
-    UNICODE : 'u' HEX HEX HEX HEX; //unicode
+    UNICODE : 'uU' HEX HEX HEX HEX; //unicode
 fragment
     BIT : [01]; //二进制
 fragment
-	SEXAGESIMAL : [0-5] [0-9]|[0-9]|'60'; //六十进制 
-	    
+    SEXAGESIMAL : [0-5] [0-9]|[0-9]|'60'; //六十进制
+fragment 
+    EXPONENT : SIGNED_INTEGER; //指数
+fragment
+    MANTISSA : EXACT_NUMERIC_LITERAL; //尾数
+fragment
+    EXACT_NUMERIC_LITERAL : UNSIGNED_INTEGER (PERIOD UNSIGNED_INTEGER?)?|PERIOD UNSIGNED_INTEGER;//精确数(有理数)
+fragment 
+    APPROXIMATE_NUMERIC_LITERAL : MANTISSA [Ee] EXPONENT; //近似数,科学计数法表示
     

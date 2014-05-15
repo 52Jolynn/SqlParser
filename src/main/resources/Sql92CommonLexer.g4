@@ -7,7 +7,7 @@ lexer grammar Sql92CommonLexer;
 
 import CommonLexer;
 
-//------------------------词法--------------------------------
+GENERAL_IDENTIFIER : ALPHA (UNDERSCORE|DIGIT|ALPHA)*;
 //标识符
 SQL_LANGUAGE_IDENTIFIER : ALPHA (UNDERSCORE|DIGIT|ALPHA)*;
 //非单引号字符

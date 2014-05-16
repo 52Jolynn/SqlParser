@@ -7,6 +7,25 @@ lexer grammar DateLexer;
 
 import CommonLexer;
 
+//日期
+fragment
+	YEARS_VALUE : [1-9] [0-9]*; //2012
+fragment
+	MONTHS_VALUE : ('0'? [1-9])|'1' [0-2]; //09，9
+fragment
+	DAYS_VALUE : ('0'? [1-9])|[1-2] [0-9]|'3' [0-1]; //31，03
+//时间
+fragment
+	HOURS_VALUE : '0'? [0-9]|'1' [0-9]|'2' [0-4];
+fragment
+	MINUTES_VALUE : SEXAGESIMAL;
+fragment
+	SECONDS_VALUE : SECONDS_INTEGER_VALUE (PERIOD SECONDS_FRACTION)?;
+fragment
+	SECONDS_INTEGER_VALUE : SEXAGESIMAL;
+fragment
+	SECONDS_FRACTION : DIGIT DIGIT DIGIT;
+
 DATE_STRING : QUOTE DATE_VALUE QUOTE;
 DATE_VALUE : YEARS_VALUE MINUS_SIGN MONTHS_VALUE MINUS_SIGN DAYS_VALUE;
 
@@ -26,24 +45,3 @@ TIME_INTERVAL : HOURS_VALUE (COLON MINUTES_VALUE (COLON SECONDS_VALUE)?)?
               | MINUTES_VALUE (COLON SECONDS_VALUE)?
               | SECONDS_VALUE
               ;
-
-//日期
-fragment
-	YEARS_VALUE : [1-9] [0-9]*; //2012
-fragment
-	MONTHS_VALUE : ('0'? [1-9])|'1' [0-2]; //09，9
-fragment
-	DAYS_VALUE : ('0'? [1-9])|[1-2] [0-9]|'3' [0-1]; //31，03
-
-//时间
-fragment
-	HOURS_VALUE : '0'? [0-9]|'1' [0-9]|'2' [0-4];
-fragment
-	MINUTES_VALUE : SEXAGESIMAL;
-fragment
-	SECONDS_VALUE : SECONDS_INTEGER_VALUE (PERIOD SECONDS_FRACTION)?;
-fragment
-	SECONDS_INTEGER_VALUE : SEXAGESIMAL;
-fragment
-	SECONDS_FRACTION : DIGIT DIGIT DIGIT;
-              

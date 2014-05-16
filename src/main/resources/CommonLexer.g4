@@ -5,10 +5,6 @@
  */
 lexer grammar CommonLexer;
 
-@header {
-package com.laudandjolynn.sqlparser;
-}
-
 //数字
 UNSIGNED_INTEGER : '0' | [1-9] [0-9]*; //无符号整数
 SIGNED_INTEGER : SIGN UNSIGNED_INTEGER; //有符号整数

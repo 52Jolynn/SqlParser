@@ -9,7 +9,7 @@ options {
 	language=Java;
 }
 
-import CommonLexer, DateLexer, Sql92CommonLexer;
+import CommonLexer, DateLexer, Sql92CommonLexer, CommonParser;
 
 prog
 :
@@ -997,7 +997,7 @@ literal
 ;
 unsigned_literal
 :
-	UNSIGNED_NUMERIC_LITERAL
+	unsigned_numeric_literal
 	| general_literal
 ;
 general_literal

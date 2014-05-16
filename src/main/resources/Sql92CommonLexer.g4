@@ -7,15 +7,6 @@ lexer grammar Sql92CommonLexer;
 
 import CommonLexer;
 
-//语言定义
-ADA : 'ADA';
-C : 'C';
-COBOL : 'COBOL';
-FORTRAN : 'FORTRAN';
-MUMPS : 'MUMPS';
-PASCAL : 'PASCAL';
-PLI : 'PLI';
-
 //操作符
 NOT_EQ : '<>';
 GREATER_THAN_OR_EQ : '>=';
@@ -42,10 +33,25 @@ NONDOUBLEQUOTE_CHARACTER : ~'"';
 
 fragment
     COMMENT_INTRODUCER : MINUS_SIGN MINUS_SIGN MINUS_SIGN*;
+//语言定义
+fragment
+    ADA : 'ADA';
+fragment
+    C : 'C';
+fragment
+    COBOL : 'COBOL';
+fragment
+    FORTRAN : 'FORTRAN';
+fragment
+    MUMPS : 'MUMPS';
+fragment
+    PASCAL : 'PASCAL';
+fragment
+    PLI : 'PLI';
 
-//''
+//'' 单引号
 QUOTE_SYMBOL : QUOTE QUOTE;
-//""
+//"" 双引号
 DOUBLEQUOTE_SYMBOL : DOUBLE_QUOTE DOUBLE_QUOTE;
 LANGUAGE_NAME : ADA|C|COBOL|FORTRAN|MUMPS|PASCAL|PLI;
 GENERAL_IDENTIFIER : ALPHA (UNDERSCORE|DIGIT|ALPHA)*;

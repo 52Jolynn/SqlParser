@@ -1,15 +1,13 @@
-// Generated from Sql92CommonLexer.g4 by ANTLR 4.2.2
-
+// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92CommonLexer.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 
-import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.Token;
-import org.antlr.v4.runtime.TokenStream;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.atn.ATN;
+import org.antlr.v4.runtime.atn.ATNDeserializer;
+import org.antlr.v4.runtime.atn.LexerATNSimulator;
+import org.antlr.v4.runtime.atn.PredictionContextCache;
 import org.antlr.v4.runtime.dfa.DFA;
-import org.antlr.v4.runtime.misc.*;
 
 @SuppressWarnings({"all", "warnings", "unchecked", "unused", "cast"})
 public class Sql92CommonLexer extends Lexer {
@@ -34,17 +32,15 @@ public class Sql92CommonLexer extends Lexer {
 	};
 
 	public static final String[] tokenNames = {
-		"<INVALID>",
-		"GENERAL_IDENTIFIER", "SQL_LANGUAGE_IDENTIFIER", "NONQUOTE_CHARACTER", 
-		"QUOTE_SYMBOL", "NONDOUBLEQUOTE_CHARACTER", "DOUBLEQUOTE_SYMBOL", "'ADA'", 
-		"'C'", "'COBOL'", "'FORTRAN'", "'MUMPS'", "'PASCAL'", "'PLI'", "LANGUAGE_NAME", 
-		"'<>'", "'>='", "LESS_THAN_OR_QE", "'||'", "'..'", "'NULL'", "'DEFAULT'", 
-		"'SOME'", "'ANY'", "'ALL'", "'DISTINCT'", "'AVG'", "'SUM'", "'MIN'", "'MAX'", 
-		"'COUNT'", "UNSIGNED_INTEGER", "SIGNED_INTEGER", "UNSIGNED_NUMERIC_LITERAL", 
-		"SIGNED_NUMERIC_LITERAL", "' '", "'\t'", "NEWLINE", "SIGN", "'+'", "'-'", 
-		"'\"'", "'%'", "'&'", "'''", "'('", "')'", "'*'", "','", "'.'", "'/'", 
-		"':'", "';'", "'<'", "LESS_THAN_OR_EQ", "'='", "'>'", "'?'", "'_'", "'|'", 
-		"'['", "']'"
+		"'\\u0000'", "'\\u0001'", "'\\u0002'", "'\\u0003'", "'\\u0004'", "'\\u0005'", 
+		"'\\u0006'", "'\\u0007'", "'\b'", "'\t'", "'\n'", "'\\u000B'", "'\f'", 
+		"'\r'", "'\\u000E'", "'\\u000F'", "'\\u0010'", "'\\u0011'", "'\\u0012'", 
+		"'\\u0013'", "'\\u0014'", "'\\u0015'", "'\\u0016'", "'\\u0017'", "'\\u0018'", 
+		"'\\u0019'", "'\\u001A'", "'\\u001B'", "'\\u001C'", "'\\u001D'", "'\\u001E'", 
+		"'\\u001F'", "' '", "'!'", "'\"'", "'#'", "'$'", "'%'", "'&'", "'''", 
+		"'('", "')'", "'*'", "'+'", "','", "'-'", "'.'", "'/'", "'0'", "'1'", 
+		"'2'", "'3'", "'4'", "'5'", "'6'", "'7'", "'8'", "'9'", "':'", "';'", 
+		"'<'", "'='"
 	};
 	public static final String[] ruleNames = {
 		"GENERAL_IDENTIFIER", "SQL_LANGUAGE_IDENTIFIER", "NONQUOTE_CHARACTER", 

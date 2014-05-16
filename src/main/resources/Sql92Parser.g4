@@ -5,6 +5,10 @@
  */
 grammar Sql92Parser;
 
+options {
+	language=Java;
+}
+
 import CommonLexer, DateLexer, Sql92CommonLexer;
 
 prog
@@ -618,9 +622,9 @@ table_constraint
 search_condition
 :
 	LEFT_PAREN search_condition RIGHT_PAREN
-	| 'NOT' search_condition //unary prefix
-	| search_condition 'AND' search_condition
-	| search_condition 'OR' search_condition //binary 
+	| 'NOT' search_condition //unary prefix，一元后缀
+	| search_condition 'AND' search_condition //binary 二元
+	| search_condition 'OR' search_condition //binary 二元 
 	| predicate ('IS' 'NOT'? truth_value)?
 ;
 //predicate
@@ -736,6 +740,28 @@ interval_value_expression
 	| interval_value_expression_1 (PLUS_SIGN|MINUS_SIGN) interval_term_1
 	| LEFT_PAREN datetime_value_expression MINUS_SIGN datetime_term RIGHT_PAREN interval_qualifier
 ;
+//datetime term
+datetime_term : datetime_factor;
+datetime_factor : datetime_primary time_zone?;
+datetime_primary
+:
+	value_expression_primary
+	| datetime_value_function
+;
+time_zone : 'AT' time_zone_specifier;
+time_zone_specifier : 'LOCAL'|'TIME' 'ZONE' interval_value_expression;
+//interval_term
+interval_term
+:
+	interval_factor
+	| interval_term_2 (ASTERISK | SOLIDUS) interval_factor
+	| term ASTERISK interval_factor
+;
+interval_factor : SIGN? interval_primary;
+interval_primary : value_expression_primary interval_qualifier?;
+interval_value_expression_1 : interval_value_expression;
+interval_term_1 : interval_term;
+interval_term_2 : interval_term;
 //case 表达式
 case_abbreviation : 'NULLIF' LEFT_PAREN value_expression COMMA value_expression RIGHT_PAREN
 	| 'COALESCE' LEFT_PAREN value_expression (COMMA value_expression)* RIGHT_PAREN
@@ -820,23 +846,6 @@ trim_function : 'TRIM' LEFT_PAREN trim_operands RIGHT_PAREN;
 trim_operands : (trim_specification? trim_character)? trim_source;
 trim_character : character_value_expression;
 trim_source : character_value_expression;
-//interval_term
-interval_term : interval_factor|interval_term_2 (ASTERISK|SOLIDUS) interval_factor|term ASTERISK interval_factor;
-interval_factor : SIGN? interval_primary;
-interval_primary : value_expression_primary interval_qualifier?;
-interval_value_expression_1 : interval_value_expression;
-interval_term_1 : interval_term;
-interval_term_2 : interval_term;
-//datetime term
-datetime_term : datetime_factor;
-datetime_factor : datetime_primary time_zone?;
-datetime_primary
-:
-	value_expression_primary
-	| datetime_value_function
-;
-time_zone : 'AT' time_zone_specifier;
-time_zone_specifier : 'LOCAL'|'TIME' 'ZONE' interval_value_expression;
 //bit substring function
 bit_substring_function : 'SUBSTRING' LEFT_PAREN bit_value_expression 'FROM' start_position ('FOR' string_length)? RIGHT_PAREN;
 bit_value_expression

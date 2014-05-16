@@ -617,31 +617,22 @@ table_constraint
 //search condition 布尔值表达式
 search_condition
 :
-	boolean_term
-	| search_condition 'OR' boolean_term
-;
-boolean_term
-:
-	boolean_factor
-	| boolean_term 'AND' boolean_factor
-;
-boolean_factor : 'NOT'? boolean_test;
-boolean_test : boolean_primary ('IS' 'NOT'? truth_value)?;
-boolean_primary
-:
-	predicate
-	| LEFT_PAREN search_condition RIGHT_PAREN
+	LEFT_PAREN search_condition RIGHT_PAREN
+	| 'NOT' search_condition //unary prefix
+	| search_condition 'AND' search_condition
+	| search_condition 'OR' search_condition //binary 
+	| predicate ('IS' 'NOT'? truth_value)?
 ;
 //predicate
 predicate
 :
-	comparision_predicate
-	| between_predicate
-	| in_predicate
-	| like_predicate
-	| null_predicate
-	| quantified_comparision_predicate
-	| exists_predicate
+	comparision_predicate //comparable
+	| between_predicate //between
+	| in_predicate //in
+	| like_predicate //like
+	| null_predicate //null
+	| quantified_comparision_predicate //
+	| exists_predicate //exists
 	| match_predicate
 	| overlaps_predicate
 ;
@@ -678,7 +669,7 @@ row_value_constructor_2 : row_value_constructor;
 row_value_constructor_element
 :
 	value_expression
-	| null_specification
+	 null_specification
 	| default_specification
 ;
 row_value_constructor_list : row_value_constructor_element (COMMA row_value_constructor_element)*;
@@ -692,26 +683,17 @@ value_expression
 	| datetime_value_expression
 	| interval_value_expression
 ;
-numeric_value_expression : term|numeric_value_expression (PLUS_SIGN|MINUS_SIGN) term;
-string_value_expression
+numeric_value_expression
 :
-	character_value_expression
-	| bit_value_expression
-;
-datetime_value_expression
-:
-	datetime_term
-	| interval_value_expression PLUS_SIGN datetime_term
-	| datetime_value_expression (PLUS_SIGN|MINUS_SIGN) interval_term
-;
-interval_value_expression
-:
-	interval_term
-	| interval_value_expression_1 (PLUS_SIGN|MINUS_SIGN) interval_term_1
-	| LEFT_PAREN datetime_value_expression MINUS_SIGN datetime_term RIGHT_PAREN interval_qualifier
+	term
+	| numeric_value_expression (PLUS_SIGN | MINUS_SIGN) term
 ;
 //term
-term : factor|term (ASTERISK|SOLIDUS) factor;
+term
+:
+	factor
+	| term (ASTERISK | SOLIDUS) factor
+;
 factor : SIGN? numeric_primary;
 numeric_primary
 :
@@ -737,6 +719,23 @@ scalar_subquery : subquery;
 case_expression : case_abbreviation|case_specification;
 cast_specification : 'CAST' LEFT_PAREN cast_operand 'AS' cast_target RIGHT_PAREN;
 
+string_value_expression
+:
+	character_value_expression
+	| bit_value_expression
+;
+datetime_value_expression
+:
+	datetime_term
+	| interval_value_expression PLUS_SIGN datetime_term
+	| datetime_value_expression (PLUS_SIGN|MINUS_SIGN) interval_term
+;
+interval_value_expression
+:
+	interval_term
+	| interval_value_expression_1 (PLUS_SIGN|MINUS_SIGN) interval_term_1
+	| LEFT_PAREN datetime_value_expression MINUS_SIGN datetime_term RIGHT_PAREN interval_qualifier
+;
 //case 表达式
 case_abbreviation : 'NULLIF' LEFT_PAREN value_expression COMMA value_expression RIGHT_PAREN
 	| 'COALESCE' LEFT_PAREN value_expression (COMMA value_expression)* RIGHT_PAREN
@@ -912,15 +911,8 @@ catalog_name : identifier;
 unqualified_schema_name : identifier;
 
 character_string_literal : (UNDERSCORE character_set_specification)? quote_string (seperator+ quote_string)*;
-character_set_specification
-:
-	standard_character_repertoire_name
-	| implementation_defined_character_repertoire_name
-	| user_defined_character_repertoire_name
-	| standard_universal_character_form_of_use_name
-	| implementation_defined_universal_character_form_of_use_name
-;
 character_set_name : (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
+character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
 implementation_defined_character_repertoire_name : character_set_name;
 user_defined_character_repertoire_name : character_set_name;

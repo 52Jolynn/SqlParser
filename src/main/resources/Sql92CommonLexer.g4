@@ -59,6 +59,10 @@ MIN : 'MIN';
 MAX : 'MAX';
 COUNT : 'COUNT';
 
+SEPERATOR : (COMMENT|WHITE_SPACE|NEWLINE) -> skip;//分隔符
+fragment
+    COMMENT : COMMENT_INTRODUCER QUOTE_STRING* NEWLINE;//注释
+
 //单引号二进制串
 QUOTE_BIT : QUOTE BIT+ QUOTE;
 //单引号十六进制串

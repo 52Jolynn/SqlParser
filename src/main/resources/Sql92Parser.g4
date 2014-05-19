@@ -9,7 +9,7 @@ options {
 	language=Java;
 }
 
-import CommonLexer, DateLexer, Sql92CommonLexer;
+import CommonLexer, Sql92CommonLexer;
 
 prog
 :
@@ -919,7 +919,7 @@ schema_name : (catalog_name PERIOD)? unqualified_schema_name;
 catalog_name : identifier;
 unqualified_schema_name : identifier;
 
-character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
+character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (SEPERATOR+ QUOTE_STRING)*;
 character_set_name : (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
@@ -1010,11 +1010,11 @@ general_literal
 	| interval_literal
 ;
 //national character string literal
-national_character_string_literal : 'N' QUOTE_STRING (seperator+ QUOTE_STRING)*;
+national_character_string_literal : 'N' QUOTE_STRING (SEPERATOR+ QUOTE_STRING)*;
 //bit string literal
-bit_string_literal : 'B' QUOTE_BIT (seperator+ QUOTE_BIT)*; //B0 1 2 3
+bit_string_literal : 'B' QUOTE_BIT (SEPERATOR+ QUOTE_BIT)*; //B0 1 2 3
 //hex string literal
-hex_string_literal : 'X' QUOTE_HEX (seperator+ QUOTE_HEX)*; //XFFEE FFEA ACEF
+hex_string_literal : 'X' QUOTE_HEX (SEPERATOR+ QUOTE_HEX)*; //XFFEE FFEA ACEF
 
 //datetime literal
 datetime_literal
@@ -1231,7 +1231,3 @@ qualified_name : (schema_name PERIOD)? qualified_identifier;
 parameter_name : COLON identifier;//参数
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
-
-seperator : comment|SPACE|NEWLINE;//分隔符
-comment : COMMENT_INTRODUCER QUOTE_STRING* NEWLINE;//注释
-	

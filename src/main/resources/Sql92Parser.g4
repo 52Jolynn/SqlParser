@@ -283,21 +283,26 @@ table_expression : from_clause where_clause? group_by_clause? having_clause?;
 from_clause : 'FROM' table_reference (COMMA table_reference)*;
 table_reference
 :
+	simple_table_reference
+	| joined_table_reference
+;
+
+simple_table_reference
+:
 	table_name correlation_specification?
 	| derived_table correlation_specification
-	| joined_table
 ;
+
+joined_table_reference
+:
+	(simple_table_reference| joined_table_reference) 'CROSS' 'JOIN' (simple_table_reference| joined_table_reference)
+	| (simple_table_reference| joined_table_reference) 'NATURAL'? join_type? 'JOIN' (simple_table_reference| joined_table_reference) join_specification?
+	| LEFT_PAREN joined_table_reference RIGHT_PAREN
+;
+
 correlation_specification : 'AS'? correlation_name (LEFT_PAREN derived_column_list RIGHT_PAREN)?;
 derived_column_list : column_name_list;
 derived_table : table_subquery;
-joined_table
-:
-	cross_join
-	| qualified_join
-	| LEFT_PAREN joined_table RIGHT_PAREN
-;
-cross_join : table_reference 'CROSS' 'JOIN' table_reference;
-qualified_join : table_reference 'NATURAL'? join_type? 'JOIN' table_reference join_specification?;
 join_type : 'INNER'|outer_join_type 'OUTER'?|'UNION';
 outer_join_type : 'LEFT'|'RIGHT'|'FULL';
 join_specification
@@ -510,7 +515,6 @@ argument : target_specification;
 execute_immediate_statemnet : 'EXECUTE' 'IMMEDIATE' sql_statement_variable;
 
 //sql dynamic data statement
-
 sql_dynamic_data_statement
 :
 	allocate_cursor_statement
@@ -556,7 +560,7 @@ condition_information_item_name
 
 //subquery 子查询
 subquery : LEFT_PAREN query_expression RIGHT_PAREN;	
-query_expression : non_join_query_expression|joined_table;
+query_expression : non_join_query_expression|joined_table_reference;
 non_join_query_expression
 :
 	non_join_query_term
@@ -584,12 +588,8 @@ query_specification : 'SELECT' set_qualifier? select_list table_expression;
 table_value_constructor : 'VALUES table_value_constructor_list';
 table_value_constructor_list : row_value_constructor (COMMA row_value_constructor);
 explicit_table : 'TABLE' table_name;
-query_term
-:
-	non_join_query_term
-	| joined_table
-;
-query_primary : non_join_query_primary|joined_table;
+query_term : non_join_query_term | joined_table_reference;
+query_primary : non_join_query_primary|joined_table_reference;
 
 //table definition 表声明
 table_element_list : LEFT_PAREN table_element (COMMA table_element)* RIGHT_PAREN;
@@ -660,15 +660,13 @@ table_subquery : subquery;
 //match predicate
 match_predicate : row_value_constructor 'MATCH' 'UNIQUE'? ('PARTIAL'|'FULL')? table_subquery;
 //overlaps predicate
-overlaps_predicate : row_value_constructor_1 'OVERLAPS' row_value_constructor_2;
+overlaps_predicate : row_value_constructor 'OVERLAPS' row_value_constructor;
 row_value_constructor
 :
 	row_value_constructor_element
 	| LEFT_PAREN row_value_constructor_list RIGHT_PAREN
 	| row_subquery
 ;
-row_value_constructor_1 : row_value_constructor;
-row_value_constructor_2 : row_value_constructor;
 row_value_constructor_element
 :
 	value_expression
@@ -736,7 +734,7 @@ datetime_value_expression
 interval_value_expression
 :
 	interval_term
-	| interval_value_expression_1 (PLUS_SIGN|MINUS_SIGN) interval_term_1
+	| interval_value_expression (PLUS_SIGN|MINUS_SIGN) interval_term
 	| LEFT_PAREN datetime_value_expression MINUS_SIGN datetime_term RIGHT_PAREN interval_qualifier
 ;
 //datetime term
@@ -753,14 +751,11 @@ time_zone_specifier : 'LOCAL'|'TIME' 'ZONE' interval_value_expression;
 interval_term
 :
 	interval_factor
-	| interval_term_2 (ASTERISK | SOLIDUS) interval_factor
+	| interval_term (ASTERISK | SOLIDUS) interval_factor
 	| term ASTERISK interval_factor
 ;
 interval_factor : SIGN? interval_primary;
 interval_primary : value_expression_primary interval_qualifier?;
-interval_value_expression_1 : interval_value_expression;
-interval_term_1 : interval_term;
-interval_term_2 : interval_term;
 //case 表达式
 case_abbreviation : 'NULLIF' LEFT_PAREN value_expression COMMA value_expression RIGHT_PAREN
 	| 'COALESCE' LEFT_PAREN value_expression (COMMA value_expression)* RIGHT_PAREN
@@ -813,8 +808,7 @@ char_length_expression : ('CHAR_LENGTH'|'CHARACTER_LENGTH') LEFT_PAREN string_va
 octet_length_expression : 'OCTET_LENGTH' LEFT_PAREN string_value_expression RIGHT_PAREN;
 bit_length_expression : 'BIT_LENGTH' LEFT_PAREN string_value_expression RIGHT_PAREN;
 //character value expression
-character_value_expression : concatentation|character_factor;
-concatentation : character_value_expression CONCATENATION character_factor;
+character_value_expression : character_value_expression CONCATENATION character_factor|character_factor;
 character_factor : character_primary collate_clause?;
 character_primary
 :
@@ -849,10 +843,9 @@ trim_source : character_value_expression;
 bit_substring_function : 'SUBSTRING' LEFT_PAREN bit_value_expression 'FROM' start_position ('FOR' string_length)? RIGHT_PAREN;
 bit_value_expression
 :
-	bit_concatenation
+	bit_value_expression CONCATENATION bit_factor
 	| bit_factor
 ;
-bit_concatenation : bit_value_expression CONCATENATION bit_factor;
 bit_factor : bit_primary;
 bit_primary
 :
@@ -911,7 +904,7 @@ identifier_part : identifier_start|DIGIT;
 
 delimited_identifier : DOUBLE_QUOTE delimited_identifier_body DOUBLE_QUOTE;
 delimited_identifier_body : delimited_identifier_part+;
-delimited_identifier_part : NONDOUBLEQUOTE_CHARACTER|DOUBLEQUOTE_SYMBOL;
+delimited_identifier_part : nondoublequote_character|doublequote_symbol;
 
 //SCHEMA NAME
 schema_name : (catalog_name PERIOD)? unqualified_schema_name;
@@ -991,12 +984,12 @@ default_option
 ;
 literal
 :
-	SIGNED_NUMERIC_LITERAL
+	SIGN? UNSIGNED_INTEGER
 	| general_literal
 ;
 unsigned_literal
 :
-	UNSIGNED_NUMERIC_LITERAL
+	UNSIGNED_INTEGER
 	| general_literal
 ;
 general_literal
@@ -1125,13 +1118,14 @@ host_identifier
 	| pascal_host_identifier
 	| pli_host_identifier
 ;
-ada_host_identifier : GENERAL_IDENTIFIER;
-c_host_identifier : GENERAL_IDENTIFIER;
-cobol_host_identifier : GENERAL_IDENTIFIER;
-fortran_host_identifier : GENERAL_IDENTIFIER;
-mumps_host_identifier : GENERAL_IDENTIFIER;
-pascal_host_identifier : GENERAL_IDENTIFIER;
-pli_host_identifier : GENERAL_IDENTIFIER;
+general_identifier: SQL_LANGUAGE_IDENTIFIER;
+ada_host_identifier : general_identifier;
+c_host_identifier : general_identifier;
+cobol_host_identifier : general_identifier;
+fortran_host_identifier : general_identifier;
+mumps_host_identifier : general_identifier;
+pascal_host_identifier : general_identifier;
+pli_host_identifier : general_identifier;
 simple_target_specification : parameter_name|embedded_variable_name;
 
 unsigned_value_specification
@@ -1230,3 +1224,5 @@ qualified_name : (schema_name PERIOD)? qualified_identifier;
 parameter_name : COLON identifier;//参数
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
+nondoublequote_character : ~'"';
+doublequote_symbol : '""';

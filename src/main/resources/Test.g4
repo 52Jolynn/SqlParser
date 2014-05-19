@@ -6,6 +6,8 @@
 
 grammar Test;
 
-import CommonLexer, CommonParser;
+import CommonLexer;
 
 prog : (number NEWLINE)*;
+
+number : UNSIGNED_NUMERIC_LITERAL|SIGNED_NUMERIC_LITERAL;

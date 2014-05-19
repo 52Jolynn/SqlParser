@@ -9,7 +9,7 @@ options {
 	language=Java;
 }
 
-import CommonLexer, DateLexer, Sql92CommonLexer, CommonParser;
+import CommonLexer, DateLexer, Sql92CommonLexer;
 
 prog
 :
@@ -919,7 +919,7 @@ schema_name : (catalog_name PERIOD)? unqualified_schema_name;
 catalog_name : identifier;
 unqualified_schema_name : identifier;
 
-character_string_literal : (UNDERSCORE character_set_specification)? quote_string (seperator+ quote_string)*;
+character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
 character_set_name : (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
@@ -997,7 +997,7 @@ literal
 ;
 unsigned_literal
 :
-	unsigned_numeric_literal
+	UNSIGNED_NUMERIC_LITERAL
 	| general_literal
 ;
 general_literal
@@ -1010,11 +1010,11 @@ general_literal
 	| interval_literal
 ;
 //national character string literal
-national_character_string_literal : 'N' quote_string (seperator+ quote_string)*;
+national_character_string_literal : 'N' QUOTE_STRING (seperator+ QUOTE_STRING)*;
 //bit string literal
-bit_string_literal : 'B' quote_bit (seperator+ quote_bit)*; //B0 1 2 3
+bit_string_literal : 'B' QUOTE_BIT (seperator+ QUOTE_BIT)*; //B0 1 2 3
 //hex string literal
-hex_string_literal : 'X' quote_hex (seperator+ quote_hex)*; //XFFEE FFEA ACEF
+hex_string_literal : 'X' QUOTE_HEX (seperator+ QUOTE_HEX)*; //XFFEE FFEA ACEF
 
 //datetime literal
 datetime_literal
@@ -1204,7 +1204,7 @@ set_qualifier : DISTINCT | ALL;
 
 quantifier : all | some;
 
-all :ALL;
+all : ALL;
 
 some : SOME | ANY;
 
@@ -1233,13 +1233,5 @@ form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
 
 seperator : comment|SPACE|NEWLINE;//分隔符
-comment : COMMENT_INTRODUCER quote_string* NEWLINE;//注释
-
-//单引号字符串
-quote_string : QUOTE character_representation* QUOTE;
-character_representation : NONQUOTE_CHARACTER|QUOTE_SYMBOL;
-//单引号二进制串
-quote_bit : QUOTE BIT* QUOTE;
-//单引号十六进制串
-quote_hex : QUOTE (HEX HEX HEX HEX)? QUOTE;//'FFEE' or ''
+comment : COMMENT_INTRODUCER QUOTE_STRING* NEWLINE;//注释
 	

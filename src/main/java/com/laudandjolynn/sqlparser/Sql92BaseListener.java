@@ -2285,18 +2285,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterAlter_domain_statement(@NotNull Sql92Parser.Alter_domain_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3713,18 +3701,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterGrant_definition(@NotNull Sql92Parser.Grant_definitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3768,18 +3744,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitGet_item_information(@NotNull Sql92Parser.Get_item_informationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4721,18 +4685,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4740,6 +4692,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

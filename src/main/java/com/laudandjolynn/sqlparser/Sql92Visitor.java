@@ -1146,12 +1146,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnsigned_literal(@NotNull Sql92Parser.Unsigned_literalContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#identifier_start}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#alter_domain_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1860,12 +1854,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnique_specification(@NotNull Sql92Parser.Unique_specificationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#identifier_body}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#grant_definition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1889,12 +1877,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitGet_item_information(@NotNull Sql92Parser.Get_item_informationContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#identifier_part}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#insert_statement}.
 	 * @param ctx the parse tree
@@ -2364,17 +2346,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLength(@NotNull Sql92Parser.LengthContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#date_literal}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#searched_when_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#date_literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#simple_case}.
 	 * @param ctx the parse tree

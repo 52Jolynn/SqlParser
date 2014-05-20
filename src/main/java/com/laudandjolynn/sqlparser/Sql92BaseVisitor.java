@@ -1341,13 +1341,6 @@ public class Sql92BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitAlter_domain_statement(@NotNull Sql92Parser.Alter_domain_statementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -2174,13 +2167,6 @@ public class Sql92BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
 	@Override public T visitGrant_definition(@NotNull Sql92Parser.Grant_definitionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
@@ -2203,13 +2189,6 @@ public class Sql92BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitGet_item_information(@NotNull Sql92Parser.Get_item_informationContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2762,14 +2741,14 @@ public class Sql92BaseVisitor<T> extends AbstractParseTreeVisitor<T> implements 
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx) { return visitChildren(ctx); }
+	@Override public T visitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

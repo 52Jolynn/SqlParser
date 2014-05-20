@@ -1899,16 +1899,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitUnsigned_literal(@NotNull Sql92Parser.Unsigned_literalContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#identifier_start}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#identifier_start}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifier_start(@NotNull Sql92Parser.Identifier_startContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#alter_domain_statement}.
 	 * @param ctx the parse tree
 	 */
@@ -3089,16 +3079,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitUnique_specification(@NotNull Sql92Parser.Unique_specificationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#identifier_body}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#identifier_body}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifier_body(@NotNull Sql92Parser.Identifier_bodyContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#grant_definition}.
 	 * @param ctx the parse tree
 	 */
@@ -3138,16 +3118,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitGet_item_information(@NotNull Sql92Parser.Get_item_informationContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#identifier_part}.
-	 * @param ctx the parse tree
-	 */
-	void enterIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#identifier_part}.
-	 * @param ctx the parse tree
-	 */
-	void exitIdentifier_part(@NotNull Sql92Parser.Identifier_partContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#insert_statement}.
 	 * @param ctx the parse tree
@@ -3929,16 +3899,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitLength(@NotNull Sql92Parser.LengthContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#date_literal}.
-	 * @param ctx the parse tree
-	 */
-	void enterDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#date_literal}.
-	 * @param ctx the parse tree
-	 */
-	void exitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#searched_when_clause}.
 	 * @param ctx the parse tree
 	 */
@@ -3948,6 +3908,16 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Sql92Parser#date_literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql92Parser#date_literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitDate_literal(@NotNull Sql92Parser.Date_literalContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#simple_case}.
 	 * @param ctx the parse tree

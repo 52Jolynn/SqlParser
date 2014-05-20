@@ -272,7 +272,7 @@ close_statement : 'CLOSE' cursor_name;
 //select into
 select_into_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
 //select
-select_statement : query_specification order_by_clause;
+select_statement : query_specification order_by_clause?;
 
 select_list : ASTERISK|select_sublists;
 select_sublists : select_sublist (COMMA select_sublist)*;
@@ -899,10 +899,7 @@ dynamic_declare_cursor : 'DECLARE' cursor_name 'INSENSITIVE'? 'SCROLL'? 'CURSOR'
 identifier : (UNDERSCORE character_set_specification)? actual_identifier;
 actual_identifier : regular_identifier|delimited_identifier;
 
-regular_identifier : identifier_body;
-identifier_body : identifier_start (UNDERSCORE|identifier_part)*;
-identifier_start : ALPHA;
-identifier_part : identifier_start|DIGIT;
+regular_identifier : SQL_LANGUAGE_IDENTIFIER;
 
 delimited_identifier : DOUBLE_QUOTE delimited_identifier_body DOUBLE_QUOTE;
 delimited_identifier_body : delimited_identifier_part+;

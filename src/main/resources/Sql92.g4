@@ -9,7 +9,7 @@ options {
 	language=Java;
 }
 
-import CommonLexer, Sql92CommonLexer;
+import CommonLexer;
 
 prog
 :
@@ -907,7 +907,7 @@ schema_name : (catalog_name PERIOD)? unqualified_schema_name;
 catalog_name : identifier;
 unqualified_schema_name : identifier;
 
-character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (SEPERATOR+ QUOTE_STRING)*;
+character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
 character_set_name : (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
@@ -998,11 +998,11 @@ general_literal
 	| interval_literal
 ;
 //national character string literal
-national_character_string_literal : 'N' QUOTE_STRING (SEPERATOR+ QUOTE_STRING)*;
+national_character_string_literal : 'N' QUOTE_STRING (seperator+ QUOTE_STRING)*;
 //bit string literal
-bit_string_literal : 'B' QUOTE_BIT (SEPERATOR+ QUOTE_BIT)*; //B0 1 2 3
+bit_string_literal : 'B' QUOTE_BIT (seperator+ QUOTE_BIT)*; //B0 1 2 3
 //hex string literal
-hex_string_literal : 'X' QUOTE_HEX (SEPERATOR+ QUOTE_HEX)*; //XFFEE FFEA ACEF
+hex_string_literal : 'X' QUOTE_HEX (seperator+ QUOTE_HEX)*; //XFFEE FFEA ACEF
 
 //datetime literal
 datetime_literal
@@ -1223,3 +1223,4 @@ translation_name : qualified_name;
 nondoublequote_character : ~'"';
 doublequote_symbol : '""';
 sign : PLUS_SIGN | MINUS_SIGN;
+seperator : COMMENT | WHITE_SPACE | NEWLINE;

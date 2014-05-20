@@ -8,7 +8,7 @@ grammar Test;
 
 import CommonLexer;
 
-prog : number|date|date_value|time|time_value|timestamp|interval;
+prog : (number|date|date_value|time|time_value|timestamp|interval)+;
 
 number : SIGNED_INTEGER|UNSIGNED_INTEGER|DECIMAL_LITERAL|APPROXIMATE_NUMERIC_LITERAL;
 date : DATE_STRING;

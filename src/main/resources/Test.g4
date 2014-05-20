@@ -8,9 +8,9 @@ grammar Test;
 
 import CommonLexer;
 
-prog : ((number|date|date_value|time|time_value|timestamp|interval) NEWLINE)*;
+prog : number|date|date_value|time|time_value|timestamp|interval;
 
-number : UNSIGNED_NUMERIC_LITERAL|SIGNED_NUMERIC_LITERAL;
+number : SIGNED_INTEGER|UNSIGNED_INTEGER|DECIMAL_LITERAL|APPROXIMATE_NUMERIC_LITERAL;
 date : DATE_STRING;
 date_value : DATE_VALUE;
 time : TIME_STRING;

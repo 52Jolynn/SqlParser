@@ -5,17 +5,14 @@
  */
 lexer grammar CommonLexer;
 
-//原则：避免让同一个token匹配两个或多个lexer rule
-
-WHITE_SPACE : ' '; //空格
+WHITE_SPACE : ' ';
 TAB : '\t'; //tab
-NEWLINE : '\r'? '\n';//换行符
+NEWLINE : '\r'? '\n';
 
-//正负号
+//+\-
 PLUS_SIGN : '+';
 MINUS_SIGN : '-';
 
-//单字符定义
 DOUBLE_QUOTE : '"';
 PERCENT : '%';
 AMPERSAND : '&';
@@ -41,24 +38,23 @@ LEFT_BRACKET : '[';
 RIGHT_BRACKET : ']';
 
 fragment
-    ZERO : '0'; //零
+    ZERO : '0';
 fragment
-    IDENTIFIER_BEGINNING_LETTER : [a-zA-Z_]; //标识符开始字母
+    IDENTIFIER_BEGINNING_LETTER : [a-zA-Z_];
 fragment
-    //宽松的标识符开始字母，英文字母、下划线、变音字符、非拉丁字母
     IDENTIFIER_BEGINNING_LETTER_LOOSE : [a-zA-Z_\u0080...\uFFFE];
 fragment
     IDENTIFIER_FOLLOW_BEGIN_LETTER : [a-zA-Z_\u0080...\uFFFE0-9$];
 fragment
-    HEX : [0-9a-fA-F]; //十六进制
+    HEX : [0-9a-fA-F];
 fragment
     UNICODE : 'uU' HEX HEX HEX HEX; //unicode
 fragment
-    BIT : [01]; //二进制
+    BIT : [01]; //binary
 fragment
-    SEXAGESIMAL : [0-5] [0-9]|[0-9]|'60'; //六十进制
+    SEXAGESIMAL : [0-5] [0-9]|[0-9]|'60';
 fragment
-    DECIMAL : PERIOD DIGIT+; //小数部分
+    DECIMAL : PERIOD DIGIT+;
 fragment
     TIME_ZONE_INTERVAL : (PLUS_SIGN|MINUS_SIGN) HOURS_VALUE COLON MINUTES_VALUE;//+10:59 -10:59
 fragment
@@ -69,7 +65,7 @@ fragment
     DAY_TIME_INTERVAL : DAYS_VALUE (WHITE_SPACE HOURS_VALUE (COLON MINUTES_VALUE (COLON SECONDS_VALUE)?)?)?;//31 12:59:59
 fragment
     TIME_INTERVAL : HOURS_VALUE (COLON MINUTES_VALUE (COLON SECONDS_VALUE)?)? | MINUTES_VALUE (COLON SECONDS_VALUE)? | SECONDS_VALUE;//12:59:59
-//日期
+
 fragment
 	YEARS_VALUE : [1-9] [0-9]*; //2012
 fragment
@@ -88,13 +84,13 @@ fragment
 fragment
 	SECONDS_FRACTION : DIGIT DIGIT DIGIT;
 
-//有符号整数
+//-1
 SIGNED_INTEGER : (PLUS_SIGN|MINUS_SIGN) UNSIGNED_INTEGER;
-//无符号整数
+//1
 UNSIGNED_INTEGER : ZERO | [1-9] DIGIT*;
-//小数
+//1.0
 DECIMAL_LITERAL : (PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER? DECIMAL;
-//近似数,科学计数法表示
+//1.2e10
 APPROXIMATE_NUMERIC_LITERAL :(DECIMAL_LITERAL|(PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER) [Ee] (PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER;
 
 TIMESTAMP_STRING : QUOTE DATE_VALUE WHITE_SPACE TIME_VALUE TIME_ZONE_INTERVAL? QUOTE;
@@ -106,7 +102,6 @@ TIME_STRING : QUOTE TIME_VALUE QUOTE; //'12:00:00'
 TIME_VALUE : HOURS_VALUE COLON MINUTES_VALUE COLON SECONDS_VALUE; //10:59:59
 
 INTERVAL_STRING : QUOTE (YEAR_MONTH_LITERAL|DAY_TIME_LITERAL) QUOTE;//'2012-12'
-//标识符
 IDENTIFIER : IDENTIFIER_BEGINNING_LETTER_LOOSE IDENTIFIER_FOLLOW_BEGIN_LETTER*;
-DIGIT : [0-9]; //数字
-ALPHA : [a-zA-Z]; //英文字母
+DIGIT : [0-9];
+ALPHA : [a-zA-Z];

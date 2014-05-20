@@ -556,7 +556,7 @@ condition_information_item_name
 	| 'MESSAGE' ('TEXT'|'LENGTH'|'OCTET' 'LENGTH')
 ;
 
-//subquery 子查询
+//subquery
 subquery : LEFT_PAREN query_expression RIGHT_PAREN;	
 query_expression : non_join_query_expression|joined_table;
 
@@ -587,13 +587,13 @@ table_value_constructor : 'VALUES table_value_constructor_list';
 table_value_constructor_list : row_value_constructor (COMMA row_value_constructor);
 explicit_table : 'TABLE' table_name;
 
-//table definition 表声明
+//table definition
 table_element_list : LEFT_PAREN table_element (COMMA table_element)* RIGHT_PAREN;
 table_element : column_definition table_constraint_definition;
 
-//column definition 列声明
+//column definition
 column_definition : column_name (data_type|domain_name) default_clause? column_constraint_definition* collate_clause?;
-//column constraint 列约束
+//column constraint
 column_constraint_definition : constraint_name_definition? column_constraint constraint_attributes?;
 column_constraint
 :
@@ -604,7 +604,7 @@ column_constraint
 ;
 check_constraint_definition : 'CHECK' LEFT_PAREN search_condition RIGHT_PAREN;
 
-//table constraint 表约束
+//table constraint
 table_constraint_definition : constraint_name_definition? table_constraint constraint_check_time?;
 table_constraint
 :
@@ -613,13 +613,13 @@ table_constraint
 	| check_constraint_definition
 ;
 
-//search condition 布尔值表达式
+//search condition
 search_condition
 :
 	LEFT_PAREN search_condition RIGHT_PAREN
-	| 'NOT' search_condition //unary prefix，一元后缀
-	| search_condition 'AND' search_condition //binary 二元
-	| search_condition 'OR' search_condition //binary 二元 
+	| 'NOT' search_condition //unary prefix
+	| search_condition 'AND' search_condition //binary
+	| search_condition 'OR' search_condition //binary
 	| predicate ('IS' 'NOT'? truth_value)?
 ;
 //predicate
@@ -672,7 +672,7 @@ row_value_constructor_element
 row_value_constructor_list : row_value_constructor_element (COMMA row_value_constructor_element)*;
 row_subquery : subquery;
 
-//value expression 值表达式
+//value expression
 value_expression
 :
 	numeric_value_expression
@@ -752,7 +752,7 @@ interval_term
 ;
 interval_factor : sign? interval_primary;
 interval_primary : value_expression_primary interval_qualifier?;
-//case 表达式
+//case expression
 case_abbreviation : 'NULLIF' LEFT_PAREN value_expression COMMA value_expression RIGHT_PAREN
 	| 'COALESCE' LEFT_PAREN value_expression (COMMA value_expression)* RIGHT_PAREN
 	;
@@ -849,7 +849,7 @@ bit_primary
 	| string_value_function
 ;
 
-//procedure 存储过程
+//procedure
 procedure : 'PROCEDURE' procedure_name parameter_declaration_list SEMICOLON sql_procedure_statement SEMICOLON;
 procedure_name : identifier;
 parameter_declaration_list : LEFT_PAREN parameter_declaration (COMMA parameter_declaration)* RIGHT_PAREN;
@@ -923,9 +923,9 @@ table_name
 	| qualified_local_table_name
 ;
 
-//constraint 约束
+//constraint
 constraint_name_definition : 'CONSTRAINT' constraint_name;
-constraint_name : qualified_name;//约束名
+constraint_name : qualified_name;
 unique_specification : 'UNIQUE'|'PRIMARY' 'KEY';
 references_specification : 'REFERENCES' referenced_table_and_columns ('MATCH' match_type)? referential_triggered_action?;
 referenced_table_and_columns : table_name (LEFT_PAREN reference_column_list RIGHT_PAREN)?;
@@ -1028,11 +1028,11 @@ current_date_value_function : 'CURRENT_DATE';
 current_time_value_function : 'CURRENT_TIME' (LEFT_PAREN time_precision RIGHT_PAREN)?;
 current_timestamp_value_function : 'CURRENT_TIMESTAMP' (LEFT_PAREN timestamp_precision RIGHT_PAREN)?;
 
-//column definition 列声明
+//column definition
 column_name : identifier;
 column_name_list : column_name (COMMA column_name)*;
 
-//data type 数据类型
+//data type
 data_type
 :
 	character_string_type ('CHARACTER' 'SET' character_set_specification)?
@@ -1217,7 +1217,7 @@ column_reference : (qualifier PERIOD)? column_name;
 
 domain_name : qualified_name;
 qualified_name : (schema_name PERIOD)? qualified_identifier;
-parameter_name : COLON identifier;//参数
+parameter_name : COLON identifier;
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
 nondoublequote_character : ~'"';

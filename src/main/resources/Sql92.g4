@@ -11,7 +11,9 @@ options {
 
 import CommonLexer;
 
-prog
+prog : statement SEMICOLON* EOF;
+
+statement
 :
 	sql_schema_statement
 	| sql_data_statement
@@ -270,7 +272,7 @@ close_statement : 'CLOSE' cursor_name;
 //select into
 select_into_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
 //select
-select_statement : query_specification;
+select_statement : query_specification order_by_clause;
 
 select_list : ASTERISK|select_sublists;
 select_sublists : select_sublist (COMMA select_sublist)*;

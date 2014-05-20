@@ -559,23 +559,23 @@ condition_information_item_name
 //subquery 子查询
 subquery : LEFT_PAREN query_expression RIGHT_PAREN;	
 query_expression : non_join_query_expression|joined_table;
+
 non_join_query_expression
-:
-	non_join_query_term
-	| query_expression ('UNION'|'EXCEPT') 'ALL'? corresponding_spec? query_term
-;
-non_join_query_term
-:
-	non_join_query_primary
-	| query_term 'INTERSECT' 'ALL'? corresponding_spec? query_primary
-;
-corresponding_spec : 'CORRESPONDING' ('BY' LEFT_PAREN corresponding_column_list RIGHT_PAREN)?;
-corresponding_column_list : column_name_list;
-non_join_query_primary
 :
 	simple_table
 	| LEFT_PAREN non_join_query_expression RIGHT_PAREN
+	| non_join_query_expression query_set_rel query_term
+	| joined_table query_set_rel query_term
+	| query_term query_intersect_rel query_primary
 ;
+
+query_set_rel : ('UNION'|'EXCEPT') 'ALL'? corresponding_spec?;
+query_primary : simple_table|joined_table|LEFT_PAREN non_join_query_expression RIGHT_PAREN;
+query_term : simple_table|joined_table|query_term query_intersect_rel query_primary;
+query_intersect_rel :'INTERSECT' 'ALL'? corresponding_spec?;
+
+corresponding_spec : 'CORRESPONDING' ('BY' LEFT_PAREN corresponding_column_list RIGHT_PAREN)?;
+corresponding_column_list : column_name_list;
 simple_table
 :
 	query_specification
@@ -586,8 +586,6 @@ query_specification : 'SELECT' set_qualifier? select_list table_expression;
 table_value_constructor : 'VALUES table_value_constructor_list';
 table_value_constructor_list : row_value_constructor (COMMA row_value_constructor);
 explicit_table : 'TABLE' table_name;
-query_term : non_join_query_term | joined_table;
-query_primary : non_join_query_primary|joined_table;
 
 //table definition 表声明
 table_element_list : LEFT_PAREN table_element (COMMA table_element)* RIGHT_PAREN;

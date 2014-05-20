@@ -38,6 +38,7 @@ public class SqlParser {
         tree.accept(new Sql92BaseVisitor<Object>(){
             @Override
             public Object visitProg(@NotNull Sql92Parser.ProgContext ctx) {
+                System.out.println(ctx.getText());
                 return super.visitProg(ctx);    //To change body of overridden methods use File | Settings | File Templates.
             }
         });

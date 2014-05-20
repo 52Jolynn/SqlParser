@@ -233,6 +233,7 @@ sql_data_statement
 	open_statement
 	| fetch_statement
 	| close_statement
+	| select_into_statement
 	| select_statement
 	| sql_data_change_statement
 ;
@@ -266,8 +267,11 @@ target_specification
 //close stmt
 close_statement : 'CLOSE' cursor_name;
 
+//select into
+select_into_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
 //select
-select_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
+select_statement : query_specification;
+
 select_list : ASTERISK|select_sublists;
 select_sublists : select_sublist (COMMA select_sublist)*;
 select_sublist :derived_column|qualifier PERIOD ASTERISK;

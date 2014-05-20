@@ -25,7 +25,7 @@ import org.antlr.v4.runtime.tree.ParseTree;
  */
 public class SqlParser {
     public static void main(String[] args) {
-        String sql = "select * from a";
+        String sql = "SELECT * FROM a";
         SqlStatement stmt = parse(sql);
         System.out.println(stmt);
     }

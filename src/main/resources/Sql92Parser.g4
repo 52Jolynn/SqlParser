@@ -268,11 +268,8 @@ close_statement : 'CLOSE' cursor_name;
 
 //select
 select_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
-select_list
-:
-	ASTERISK
-	| select_sublist (COMMA select_sublist)*
-;
+select_list : ASTERISK|select_sublists;
+select_sublists : select_sublist (COMMA select_sublist)*;
 select_sublist :derived_column|qualifier PERIOD ASTERISK;
 derived_column : value_expression as_clause;
 
@@ -283,21 +280,22 @@ table_expression : from_clause where_clause? group_by_clause? having_clause?;
 from_clause : 'FROM' table_reference (COMMA table_reference)*;
 table_reference
 :
-	simple_table_reference
-	| joined_table_reference
+	normal_table
+	| joined_table
 ;
 
-simple_table_reference
+normal_table
 :
 	table_name correlation_specification?
 	| derived_table correlation_specification
 ;
 
-joined_table_reference
+joined_table
 :
-	(simple_table_reference| joined_table_reference) 'CROSS' 'JOIN' (simple_table_reference| joined_table_reference)
-	| (simple_table_reference| joined_table_reference) 'NATURAL'? join_type? 'JOIN' (simple_table_reference| joined_table_reference) join_specification?
-	| LEFT_PAREN joined_table_reference RIGHT_PAREN
+	joined_table 'CROSS' 'JOIN' joined_table
+	| joined_table 'NATURAL'? join_type? 'JOIN' joined_table join_specification?
+	| LEFT_PAREN joined_table RIGHT_PAREN
+	| normal_table
 ;
 
 correlation_specification : 'AS'? correlation_name (LEFT_PAREN derived_column_list RIGHT_PAREN)?;
@@ -560,7 +558,7 @@ condition_information_item_name
 
 //subquery 子查询
 subquery : LEFT_PAREN query_expression RIGHT_PAREN;	
-query_expression : non_join_query_expression|joined_table_reference;
+query_expression : non_join_query_expression|joined_table;
 non_join_query_expression
 :
 	non_join_query_term
@@ -588,8 +586,8 @@ query_specification : 'SELECT' set_qualifier? select_list table_expression;
 table_value_constructor : 'VALUES table_value_constructor_list';
 table_value_constructor_list : row_value_constructor (COMMA row_value_constructor);
 explicit_table : 'TABLE' table_name;
-query_term : non_join_query_term | joined_table_reference;
-query_primary : non_join_query_primary|joined_table_reference;
+query_term : non_join_query_term | joined_table;
+query_primary : non_join_query_primary|joined_table;
 
 //table definition 表声明
 table_element_list : LEFT_PAREN table_element (COMMA table_element)* RIGHT_PAREN;
@@ -695,7 +693,7 @@ term
 	factor
 	| term (ASTERISK | SOLIDUS) factor
 ;
-factor : SIGN? numeric_primary;
+factor : sign? numeric_primary;
 numeric_primary
 :
 	value_expression_primary
@@ -754,7 +752,7 @@ interval_term
 	| interval_term (ASTERISK | SOLIDUS) interval_factor
 	| term ASTERISK interval_factor
 ;
-interval_factor : SIGN? interval_primary;
+interval_factor : sign? interval_primary;
 interval_primary : value_expression_primary interval_qualifier?;
 //case 表达式
 case_abbreviation : 'NULLIF' LEFT_PAREN value_expression COMMA value_expression RIGHT_PAREN
@@ -984,7 +982,7 @@ default_option
 ;
 literal
 :
-	SIGN? UNSIGNED_INTEGER
+	sign? UNSIGNED_INTEGER
 	| general_literal
 ;
 unsigned_literal
@@ -1019,7 +1017,7 @@ date_literal : 'DATE' DATE_STRING;
 time_literal : 'TIME' TIME_STRING;
 timestamp_literal : 'TIMESTAMP' TIMESTAMP_STRING;
 //interval literal
-interval_literal : 'INTERVAL' SIGN? INTERVAL_STRING interval_qualifier;
+interval_literal : 'INTERVAL' sign? INTERVAL_STRING interval_qualifier;
 
 //datetime value function
 datetime_value_function
@@ -1226,3 +1224,4 @@ form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
 nondoublequote_character : ~'"';
 doublequote_symbol : '""';
+sign : PLUS_SIGN | MINUS_SIGN;

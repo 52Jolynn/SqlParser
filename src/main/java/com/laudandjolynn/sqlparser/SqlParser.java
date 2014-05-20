@@ -10,6 +10,12 @@
  ******************************************************************************/
 package com.laudandjolynn.sqlparser;
 
+import com.laudandjolynn.sqlparser.entity.SqlStatement;
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.antlr.v4.runtime.tree.ParseTree;
+
 /**
  * 
  * @author: Laud
@@ -18,5 +24,23 @@ package com.laudandjolynn.sqlparser;
  * @copyright: www.laudandjolynn.com
  */
 public class SqlParser {
-
+    public static void main(String[] args) {
+        String sql = "select * from a";
+        SqlStatement stmt = parse(sql);
+        System.out.println(stmt);
+    }
+    public static SqlStatement parse(String sql) {
+        ANTLRInputStream input = new ANTLRInputStream(sql);
+        Sql92Lexer lexer = new Sql92Lexer(input);
+        CommonTokenStream stream = new CommonTokenStream(lexer);
+        Sql92Parser parser = new Sql92Parser(stream);
+        ParseTree tree = parser.prog();
+        tree.accept(new Sql92BaseVisitor<Object>(){
+            @Override
+            public Object visitProg(@NotNull Sql92Parser.ProgContext ctx) {
+                return super.visitProg(ctx);    //To change body of overridden methods use File | Settings | File Templates.
+            }
+        });
+        return null;
+    }
 }

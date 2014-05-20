@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-grammar Sql92Parser;
+grammar Sql92;
 
 options {
 	language=Java;

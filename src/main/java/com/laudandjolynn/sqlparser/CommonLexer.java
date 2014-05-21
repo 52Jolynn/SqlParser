@@ -1,4 +1,4 @@
-// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\CommonLexer.g4 by ANTLR 4.x
+// Generated from G:/Code/java/SqlParser/src/main/resources\CommonLexer.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 
 import org.antlr.v4.runtime.CharStream;

@@ -1020,9 +1020,9 @@ general_literal
 //national character string literal
 national_character_string_literal : N_ QUOTE_STRING (seperator+ QUOTE_STRING)*;
 //bit string literal
-bit_string_literal : B_ QUOTE_BIT (seperator+ QUOTE_BIT)*; //B0 1 2 3
+bit_string_literal : B_ QUOTE_BIT (seperator+ QUOTE_BIT)*; //B'01111'
 //hex string literal
-hex_string_literal : X_ QUOTE_HEX (seperator+ QUOTE_HEX)*; //XFFEE FFEA ACEF
+hex_string_literal : X_ QUOTE_HEX (seperator+ QUOTE_HEX)*; //X'FFEE'
 
 //datetime literal
 datetime_literal
@@ -1211,12 +1211,7 @@ set_function_type
 ;
 
 set_qualifier : DISTINCT | ALL;
-
-quantifier : all | some;
-
-all : ALL;
-
-some : SOME | ANY;
+quantifier : ALL | SOME | ANY;
 
 length : UNSIGNED_INTEGER;
 precision : UNSIGNED_INTEGER;
@@ -1237,8 +1232,6 @@ qualified_name : (catalog_name PERIOD)? (schema_name PERIOD)? qualified_identifi
 parameter_name : COLON identifier;
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
-nondoublequote_character : '~"';
-doublequote_symbol : '""';
 sign : PLUS_SIGN | MINUS_SIGN;
 seperator : COMMENT | WHITE_SPACE | NEWLINE;
 

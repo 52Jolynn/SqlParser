@@ -1,4 +1,4 @@
-// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
+// Generated from G:/Code/java/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -1349,18 +1349,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAll(@NotNull Sql92Parser.AllContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAll(@NotNull Sql92Parser.AllContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterBit_string_literal(@NotNull Sql92Parser.Bit_string_literalContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1476,18 +1464,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitValue_expression(@NotNull Sql92Parser.Value_expressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNondoublequote_character(@NotNull Sql92Parser.Nondoublequote_characterContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNondoublequote_character(@NotNull Sql92Parser.Nondoublequote_characterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4625,18 +4601,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSome(@NotNull Sql92Parser.SomeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSome(@NotNull Sql92Parser.SomeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSet_function_specification(@NotNull Sql92Parser.Set_function_specificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4848,18 +4812,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNon_second_datetime_field(@NotNull Sql92Parser.Non_second_datetime_fieldContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDoublequote_symbol(@NotNull Sql92Parser.Doublequote_symbolContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDoublequote_symbol(@NotNull Sql92Parser.Doublequote_symbolContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

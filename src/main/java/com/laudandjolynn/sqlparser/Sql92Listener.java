@@ -2659,16 +2659,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitC_host_identifier(@NotNull Sql92Parser.C_host_identifierContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#delimited_identifier_part}.
-	 * @param ctx the parse tree
-	 */
-	void enterDelimited_identifier_part(@NotNull Sql92Parser.Delimited_identifier_partContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#delimited_identifier_part}.
-	 * @param ctx the parse tree
-	 */
-	void exitDelimited_identifier_part(@NotNull Sql92Parser.Delimited_identifier_partContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#domain_name}.
 	 * @param ctx the parse tree
 	 */
@@ -4358,16 +4348,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitFetch_target_list(@NotNull Sql92Parser.Fetch_target_listContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#delimited_identifier_body}.
-	 * @param ctx the parse tree
-	 */
-	void enterDelimited_identifier_body(@NotNull Sql92Parser.Delimited_identifier_bodyContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#delimited_identifier_body}.
-	 * @param ctx the parse tree
-	 */
-	void exitDelimited_identifier_body(@NotNull Sql92Parser.Delimited_identifier_bodyContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#column_reference}.
 	 * @param ctx the parse tree

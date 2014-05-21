@@ -1602,12 +1602,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitC_host_identifier(@NotNull Sql92Parser.C_host_identifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#delimited_identifier_part}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDelimited_identifier_part(@NotNull Sql92Parser.Delimited_identifier_partContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#domain_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2621,12 +2615,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitFetch_target_list(@NotNull Sql92Parser.Fetch_target_listContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#delimited_identifier_body}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDelimited_identifier_body(@NotNull Sql92Parser.Delimited_identifier_bodyContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#column_reference}.
 	 * @param ctx the parse tree

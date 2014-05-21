@@ -3197,18 +3197,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDelimited_identifier_part(@NotNull Sql92Parser.Delimited_identifier_partContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDelimited_identifier_part(@NotNull Sql92Parser.Delimited_identifier_partContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDomain_name(@NotNull Sql92Parser.Domain_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -5232,18 +5220,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitFetch_target_list(@NotNull Sql92Parser.Fetch_target_listContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDelimited_identifier_body(@NotNull Sql92Parser.Delimited_identifier_bodyContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDelimited_identifier_body(@NotNull Sql92Parser.Delimited_identifier_bodyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

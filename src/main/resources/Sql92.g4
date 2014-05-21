@@ -925,10 +925,7 @@ identifier : (UNDERSCORE character_set_specification)? actual_identifier;
 actual_identifier : regular_identifier|delimited_identifier;
 
 regular_identifier : sql_language_identifier;
-
-delimited_identifier : DOUBLE_QUOTE delimited_identifier_body DOUBLE_QUOTE;
-delimited_identifier_body : delimited_identifier_part+;
-delimited_identifier_part : nondoublequote_character|doublequote_symbol;
+delimited_identifier : DOUBLEQUOTE_STRING;
 
 //SCHEMA NAME
 schema_name : identifier;

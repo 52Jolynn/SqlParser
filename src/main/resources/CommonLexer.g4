@@ -40,18 +40,369 @@ RIGHT_BRACKET : ']';
 CONCATENATION : '||';
 DOUBLE_PERIOD : '..';
 
-NULL : 'NULL';
-DEFAULT : 'DEFAULT';
-SOME : 'SOME';
-ANY : 'ANY';
-ALL : 'ALL';
-DISTINCT : 'DISTINCT';
-AVG : 'AVG';
-SUM : 'SUM';
-MIN : 'MIN';
-MAX : 'MAX';
-COUNT : 'COUNT';
+//keywords
+ABSOLUTE : A B S O L U T E;
+ACTION : A C T I O N;
+ADA : A D A;
+ADD : A D D;
+ALL : A L L;
+ALLOCATE : A L L O C A T E;
+ALTER : A L T E R;
+AND : A N D;
+ANY : A N Y;
+ARE : A R E;
+AS : A S;
+ASC : A S C;
+ASSERTION : A S S E R T I O N;
+AT : A T;
+AUTHORIZATION : A U T H O R I Z A T I O N;
+LAUTO : 'auto';
+AVG : A V G;
+B_ : B;
+BEGIN : B E G I N;
+BETWEEN : B E T W E E N;
+BIT : B I T;
+BIT_LENGTH : B I T '_' L E N G T H;
+BOTH : B O T H;
+BY : B Y;
+C_ : C;
+CASCADE : C A S C A D E;
+CASCADED : C A S C A D E D;
+CASE : C A S E;
+CAST : C A S T;
+CATALOG : C A T A L O G;
+CATALOG_NAME : C A T A L O G '_' N A M E;
+LCHAR : 'char';
+CHAR : C H A R;
+CHARACTER : C H A R A C T E R;
+CHARACTER_LENGTH : C H A R A C T E R '_' L E N G T H;
+CHARACTER_SET_CATALOG : C H A R A C T E R '_' S E T '_' C A T A L O G;
+CHARACTER_SET_NAME : C H A R A C T E R '_' S E T '_' N A M E;
+CHARACTER_SET_SCHEMA : C H A R A C T E R '_' S E T '_' S C H E M A;
+CHAR_LENGTH : C H A R '_' L E N G T H;
+CHECK : C H E C K;
+CLASS_ORIGIN : C L A S S '_' O R I G I N;
+CLOSE : C L O S E;
+COALESCE : C O A L E S C E;
+COBOL : C O B O L;
+COLLATE : C O L L A T E;
+COLLATION : C O L L A T I O N;
+COLLATION_CATALOG : C O L L A T I O N '_' C A T A L O G;
+COLLATION_NAME : C O L L A T I O N '_' N A M E;
+COLLATION_SCHEMA : C O L L A T I O N '_' S C H E M A;
+COLUMN : C O L U M N;
+COLUMN_NAME : C O L U M N '_' N A M E;
+COMMAND_FUNCTION : C O M M A N D '_' F U N C T I O N;
+COMMIT : C O M M I T;
+COMMITTED : C O M M I T T E D;
+CONDITION_NUMBER : C O N D I T I O N '_' N U M B E R;
+CONNECT : C O N N E C T;
+CONNECTION : C O N N E C T I O N;
+CONNECTION_NAME : C O N N E C T I O N '_' N A M E;
+CONST : 'const';
+CONSTRAINT : C O N S T R A I N T;
+CONSTRAINTS : C O N S T R A I N T S;
+CONSTRAINT_CATALOG : C O N S T R A I N T '_' C A T A L O G;
+CONSTRAINT_NAME : C O N S T R A I N T '_' N A M E;
+CONSTRAINT_SCHEMA : C O N S T R A I N T '_' S C H E M A;
+CONSTRATIN_CATALOG : C O N S T R A T I N '_' C A T A L O G;
+CONTINUE : C O N T I N U E;
+CONVERT : C O N V E R T;
+CORRESPONDING : C O R R E S P O N D I N G;
+COUNT : C O U N T;
+CREATE : C R E A T E;
+CROSS : C R O S S;
+CURRENT : C U R R E N T;
+CURRENT_DATE : C U R R E N T '_' D A T E;
+CURRENT_TIME : C U R R E N T '_' T I M E;
+CURRENT_TIMESTAMP : C U R R E N T '_' T I M E S T A M P;
+CURRENT_USER : C U R R E N T '_' U S E R;
+CURSOR : C U R S O R;
+CURSOR_NAME : C U R S O R '_' N A M E;
+DATA : D A T A;
+DATE : D A T E;
+DATETIME_INTERVAL_CODE : D A T E T I M E '_' I N T E R V A L '_' C O D E;
+DATETIME_INTERVAL_PRECISION : D A T E T I M E '_' I N T E R V A L '_' P R E C I S I O N;
+DAY : D A Y;
+DEALLOCATE : D E A L L O C A T E;
+DEC : D E C;
+DECIMAL : D E C I M A L;
+DECLARE : D E C L A R E;
+DEFAULT : D E F A U L T;
+DEFERRABLE : D E F E R R A B L E;
+DEFERRED : D E F E R R E D;
+DELETE : D E L E T E;
+DESC : D E S C;
+DESCRIBE : D E S C R I B E;
+DESCRIPTOR : D E S C R I P T O R;
+DIAGNOSTICS : D I A G N O S T I C S;
+DISCONNECT : D I S C O N N E C T;
+DISTINCT : D I S T I N C T;
+DOMAIN : D O M A I N;
+DOUBLE : D O U B L E;
+LDOUBLE : 'double';
+DOUBLE_PRECISION : D O U B L E '_' P R E C I S I O N;
+DROP : D R O P;
+DYNAMIC_FUNCTION : D Y N A M I C '_' F U N C T I O N;
+EDITION1987 : 'edition1987';
+EDITION1989 : 'edition1989';
+EDITION1992 : 'edition1992';
+ELSE : E L S E;
+END : E N D;
+END_EXEC : E N D '-' E X E C;
+ESCAPE : E S C A P E;
+EXCEPT : E X C E P T;
+EXCEPTION : E X C E P T I O N;
+EXEC : E X E C;
+EXECUTE : E X E C U T E;
+EXISTS : E X I S T S;
+LEXTERN : 'extern';
+EXTERNAL : E X T E R N A L;
+EXTRACT : E X T R A C T;
+FALSE : F A L S E;
+FETCH : F E T C H;
+FIRST : F I R S T;
+LFLOAT : 'float';
+FLOAT : F L O A T;
+FOR : F O R;
+FOREIGN : F O R E I G N;
+FORTRAN : F O R T R A N;
+FOUND : F O U N D;
+FROM : F R O M;
+FULL : F U L L;
+GET : G E T;
+GLOBAL : G L O B A L;
+GO : G O;
+GOTO : G O T O;
+GRANT : G R A N T;
+GROUP : G R O U P;
+LGT : 'gt';
+HAVING : H A V I N G;
+HIGH : H I G H;
+HOUR : H O U R;
+IDENTITY : I D E N T I T Y;
+IMMEDIATE : I M M E D I A T E;
+IN : I N;
+INDICATOR : I N D I C A T O R;
+INDICATOR_TYPE : I N D I C A T O R '_' T Y P E;
+INITIALLY : I N I T I A L L Y;
+INNER : I N N E R;
+INPUT : I N P U T;
+INSENSITIVE : I N S E N S I T I V E;
+INSERT : I N S E R T;
+INT : I N T;
+INTEGER : I N T E G E R;
+INTEGRITYNO : I N T E G R I T Y N O;
+INTEGRITYYES : I N T E G R I T Y Y E S;
+INTERMEDIATE : I N T E R M E D I A T E;
+INTERSECT : I N T E R S E C T;
+INTERVAL : I N T E R V A L;
+INTO : I N T O;
+IS : I S;
+LISO : 'iso';
+ISOLATION : I S O L A T I O N;
+JOIN : J O I N;
+KEY : K E Y;
+LANGUAGE : L A N G U A G E;
+LAST : L A S T;
+LEADING : L E A D I N G;
+LEFT : L E F T;
+LENGTH : L E N G T H;
+LEVEL : L E V E L;
+LIKE : L I K E;
+LOCAL : L O C A L;
+LLONG : 'long';
+LOW : L O W;
+LOWER : L O W E R;
+LLT : 'lt';
+MATCH : M A T C H;
+MAX : M A X;
+MESSAGE_LENGTH : M E S S A G E '_' L E N G T H;
+MESSAGE_OCTET_LENGTH : M E S S A G E '_' O C T E T '_' L E N G T H;
+MESSAGE_TEXT : M E S S A G E '_' T E X T;
+MIN : M I N;
+MINUTE : M I N U T E;
+MODULE : M O D U L E;
+MONTH : M O N T H;
+MORE : M O R E;
+MUMPS : M U M P S;
+N_ : N;
+NAME : N A M E;
+NAMES : N A M E S;
+NATIONAL : N A T I O N A L;
+NATURAL : N A T U R A L;
+NCHAR : N C H A R;
+NEXT : N E X T;
+NO : N O;
+NOT : N O T;
+NULL : N U L L;
+NULLABLE : N U L L A B L E;
+NULLIF : N U L L I F;
+NUMBER : N U M B E R;
+NUMERIC : N U M E R I C;
+OCTET_LENGTH : O C T E T '_' L E N G T H;
+OF : O F;
+LOMITTED : 'omitted';
+ON : O N;
+ONLY : O N L Y;
+OPEN : O P E N;
+OPTION : O P T I O N;
+OR : O R;
+ORDER : O R D E R;
+OUTER : O U T E R;
+OUTPUT : O U T P U T;
+OVERLAPS : O V E R L A P S;
+PAD : P A D;
+PARTIAL : P A R T I A L;
+PASCAL : P A S C A L;
+PLI : P L I;
+POSITION : P O S I T I O N;
+PRECISION : P R E C I S I O N;
+PREPARE : P R E P A R E;
+PRESERVE : P R E S E R V E;
+PRIMARY : P R I M A R Y;
+PRIOR : P R I O R;
+PRIVILEGES : P R I V I L E G E S;
+PROCEDURE : P R O C E D U R E;
+PUBLIC : P U B L I C;
+READ : R E A D;
+REAL : R E A L;
+REFERENCES : R E F E R E N C E S;
+RELATIVE : R E L A T I V E;
+REPEATABLE : R E P E A T A B L E;
+RESTRICT : R E S T R I C T;
+RETURNED_LENGTH : R E T U R N E D '_' L E N G T H;
+RETURNED_OCTET_LENGTH : R E T U R N E D '_' O C T E T '_' L E N G T H;
+RETURNED_SQLSTATE : R E T U R N E D '_' S Q L S T A T E;
+REVOKE : R E V O K E;
+RIGHT : R I G H T;
+ROLLBACK : R O L L B A C K;
+ROWS : R O W S;
+ROW_COUNT : R O W '_' C O U N T;
+SCALE : S C A L E;
+SCHEMA : S C H E M A;
+SCHEMA_NAME : S C H E M A '_' N A M E;
+SCROLL : S C R O L L;
+SECOND : S E C O N D;
+SECTION : S E C T I O N;
+SELECT : S E L E C T;
+SERIALIZABLE : S E R I A L I Z A B L E;
+SERVER_NAME : S E R V E R '_' N A M E;
+SESSION : S E S S I O N;
+SESSION_USER : S E S S I O N '_' U S E R;
+SET : S E T;
+LSHORT : 'short';
+SIZE : S I Z E;
+SMALLINT : S M A L L I N T;
+SOME : S O M E;
+SPACE : S P A C E;
+SQL : S Q L;
+SQLCODE : S Q L C O D E;
+SQLCODE_TYPE : S Q L C O D E '_' T Y P E;
+SQLERROR : S Q L E R R O R;
+SQLSTATE : S Q L S T A T E;
+SQLSTATE_TYPE : S Q L S T A T E '_' T Y P E;
+SQL_STANDARD : S Q L '_' S T A N D A R D;
+LSTANDARD : 'standard';
+LSTATIC : 'static';
+SUBCLASS_ORIGIN : S U B C L A S S '_' O R I G I N;
+SUBSTRING : S U B S T R I N G;
+SUM : S U M;
+SYSTEM_USER : S Y S T E M '_' U S E R;
+TABLE : T A B L E;
+TABLE_NAME : T A B L E '_' N A M E;
+TEMPORARY : T E M P O R A R Y;
+THEN : T H E N;
+TIME : T I M E;
+TIMESTAMP : T I M E S T A M P;
+TIMEZONE_HOUR : T I M E Z O N E '_' H O U R;
+TIMEZONE_MINUTE : T I M E Z O N E '_' M I N U T E;
+TO : T O;
+TRAILING : T R A I L I N G;
+TRANSACTION : T R A N S A C T I O N;
+TRANSLATE : T R A N S L A T E;
+TRANSLATION : T R A N S L A T I O N;
+TRIM : T R I M;
+TRUE : T R U E;
+TYPE : T Y P E;
+UNCOMMITTED : U N C O M M I T T E D;
+UNION : U N I O N;
+UNIQUE : U N I Q U E;
+UNKNOWN : U N K N O W N;
+UNNAMED : U N N A M E D;
+UPDATE : U P D A T E;
+UPPER : U P P E R;
+USAGE : U S A G E;
+USER : U S E R;
+USING : U S I N G;
+VALUE : V A L U E;
+VALUES : V A L U E S;
+VARCHAR : V A R C H A R;
+VARYING : V A R Y I N G;
+VIEW : V I E W;
+LVOLATILE : 'volatile';
+WHEN : W H E N;
+WHENEVER : W H E N E V E R;
+WHERE : W H E R E;
+WITH : W I T H;
+WORK : W O R K;
+WRITE : W R I T E;
+X_ : X;
+YEAR : Y E A R;
+ZONE : Z O N E;
 
+fragment
+    A : [aA];
+fragment
+    B : [bB];
+fragment
+    C : [cC];
+fragment
+    D : [dD];
+fragment
+    E : [eE];
+fragment
+    F : [fF];
+fragment
+    G : [gG];
+fragment
+    H : [hH];
+fragment
+    I : [iI];
+fragment
+    J : [jJ];
+fragment
+    K : [kK];
+fragment
+    L : [lL];
+fragment
+    M : [mM];
+fragment
+    N : [nN];
+fragment
+    O : [oO];
+fragment
+    P : [pP];
+fragment
+    Q : [qQ];
+fragment
+    R : [rR];
+fragment
+    S : [sS];
+fragment
+    T : [tT];
+fragment
+    U : [uU];
+fragment
+    V : [vV];
+fragment
+    W : [wW];
+fragment
+    X : [xX];
+fragment
+    Y : [yY];
+fragment
+    Z : [zZ];
 fragment
     DIGIT : [0-9];
 fragment
@@ -67,13 +418,13 @@ fragment
 fragment
     HEX : [0-9a-fA-F];
 fragment
-    UNICODE : 'uU' HEX HEX HEX HEX; //unicode
+    UNICODE : U HEX HEX HEX HEX; //unicode
 fragment
-    BIT : [01]; //binary
+    BINARY : [01]; //binary
 fragment
     SEXAGESIMAL : [0-5] [0-9]|[0-9]|'60';
 fragment
-    DECIMAL : PERIOD DIGIT+;
+    DECIMAL_ : PERIOD DIGIT+;
 fragment
     TIME_ZONE_INTERVAL : (PLUS_SIGN|MINUS_SIGN) HOURS_VALUE COLON MINUTES_VALUE;//+10:59 -10:59
 fragment
@@ -102,20 +453,6 @@ fragment
 fragment
 	SECONDS_FRACTION : DIGIT DIGIT DIGIT;
 fragment
-    ADA : 'ADA';
-fragment
-    C : 'C';
-fragment
-    COBOL : 'COBOL';
-fragment
-    FORTRAN : 'FORTRAN';
-fragment
-    MUMPS : 'MUMPS';
-fragment
-    PASCAL : 'PASCAL';
-fragment
-    PLI : 'PLI';
-fragment
     CHARACTER_REPRESENTATION : ~'\''|'\'\'';
 fragment
     COMMENT_INTRODUCER : MINUS_SIGN MINUS_SIGN MINUS_SIGN*;
@@ -125,7 +462,7 @@ SIGNED_INTEGER : (PLUS_SIGN|MINUS_SIGN) UNSIGNED_INTEGER;
 //1
 UNSIGNED_INTEGER : ZERO | [1-9] DIGIT*;
 //1.0
-DECIMAL_LITERAL : (PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER? DECIMAL;
+DECIMAL_LITERAL : (PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER? DECIMAL_;
 //1.2e10
 APPROXIMATE_NUMERIC_LITERAL :(DECIMAL_LITERAL|(PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER) [Ee] (PLUS_SIGN|MINUS_SIGN)? UNSIGNED_INTEGER;
 
@@ -140,8 +477,7 @@ TIME_VALUE : HOURS_VALUE COLON MINUTES_VALUE COLON SECONDS_VALUE; //10:59:59
 INTERVAL_STRING : QUOTE (YEAR_MONTH_LITERAL|DAY_TIME_LITERAL) QUOTE;//'2012-12'
 
 COMMENT : COMMENT_INTRODUCER QUOTE_STRING* NEWLINE -> skip;//comment
-QUOTE_BIT : QUOTE BIT+ QUOTE;
+QUOTE_BIT : QUOTE BINARY+ QUOTE;
 QUOTE_HEX : QUOTE HEX HEX HEX HEX QUOTE;//'FFEE'
-LANGUAGE_NAME : ADA|C|COBOL|FORTRAN|MUMPS|PASCAL|PLI;
 QUOTE_STRING : QUOTE CHARACTER_REPRESENTATION* QUOTE;
 SQL_LANGUAGE_IDENTIFIER : ALPHA (UNDERSCORE|DIGIT|ALPHA)*;

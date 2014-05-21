@@ -13,13 +13,10 @@ package com.laudandjolynn.sqlparser;
 import com.laudandjolynn.sqlparser.entity.SqlStatement;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.List;
 
 /**
  * @author: Laud
@@ -33,24 +30,20 @@ public class SqlParser {
     public static void main(String[] args) {
         String sql = "SELECT * FROM a";
         SqlStatement stmt = parse(sql);
-        System.out.println(stmt);
     }
 
     public static SqlStatement parse(String sql) {
         ANTLRInputStream input = new ANTLRInputStream(sql);
         Sql92Lexer lexer = new Sql92Lexer(input);
-        List<? extends  Token> tokenList = lexer.getAllTokens();
-        for (int i = 0; i < tokenList.size(); i++) {
-            System.out.println(tokenList.get(i));
-        }
         CommonTokenStream tokenStream = new CommonTokenStream(lexer);
+        tokenStream.fill();
+        logger.debug("all tokens: " + tokenStream.getTokens().toString());
         Sql92Parser parser = new Sql92Parser(tokenStream);
         ParseTree tree = parser.prog();
-        System.out.println(tree.toStringTree());
+        logger.debug("parse tree: " + tree.toStringTree(parser));
         tree.accept(new Sql92BaseVisitor<Object>() {
             @Override
             public Object visitProg(@NotNull Sql92Parser.ProgContext ctx) {
-                System.out.println(ctx.getText());
                 return super.visitProg(ctx);    //To change body of overridden methods use File | Settings | File Templates.
             }
         });

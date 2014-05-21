@@ -1,4 +1,4 @@
-// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
+// Generated from G:/Code/java/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
@@ -678,12 +678,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitQuantified_comparision_predicate(@NotNull Sql92Parser.Quantified_comparision_predicateContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#all}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAll(@NotNull Sql92Parser.AllContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#bit_string_literal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -743,12 +737,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitValue_expression(@NotNull Sql92Parser.Value_expressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#nondoublequote_character}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitNondoublequote_character(@NotNull Sql92Parser.Nondoublequote_characterContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#unique_column_list}.
 	 * @param ctx the parse tree
@@ -2316,12 +2304,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUser_name(@NotNull Sql92Parser.User_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#some}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSome(@NotNull Sql92Parser.SomeContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#set_function_specification}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2429,12 +2411,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNon_second_datetime_field(@NotNull Sql92Parser.Non_second_datetime_fieldContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#doublequote_symbol}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDoublequote_symbol(@NotNull Sql92Parser.Doublequote_symbolContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#table_subquery}.
 	 * @param ctx the parse tree

@@ -1,8 +1,9 @@
-// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\CommonLexer.g4 by ANTLR 4.x
+// Generated from G:/Code/java/SqlParser/src/main/resources\CommonLexer.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Lexer;
+import org.antlr.v4.runtime.RuleContext;
 import org.antlr.v4.runtime.atn.ATN;
 import org.antlr.v4.runtime.atn.ATNDeserializer;
 import org.antlr.v4.runtime.atn.LexerATNSimulator;
@@ -207,7 +208,7 @@ public class CommonLexer extends Lexer {
 	};
 
 
-	public final static int WHITE_SPACE=1;
+	public final static int WHITE_SPACE_CHANNEL=1;
 
 
 	public CommonLexer(CharStream input) {
@@ -232,6 +233,18 @@ public class CommonLexer extends Lexer {
 
 	@Override
 	public ATN getATN() { return _ATN; }
+
+	@Override
+	public void action(RuleContext _localctx, int ruleIndex, int actionIndex) {
+		switch (ruleIndex) {
+		case 0: WHITE_SPACE_action((RuleContext)_localctx, actionIndex); break;
+		}
+	}
+	private void WHITE_SPACE_action(RuleContext _localctx, int actionIndex) {
+		switch (actionIndex) {
+		case 0: _channel = WHITE_SPACE_CHANNEL; break;
+		}
+	}
 
 	private static final int _serializedATNSegments = 2;
 	private static final String _serializedATNSegment0 =
@@ -1928,7 +1941,7 @@ public class CommonLexer extends Lexer {
 		"\u036d\u0dc9\u0dcf\u0dd3\u0ddd\u0de0\u0de4\u0ded\u0def\u0df1\u0df9\u0dfb"+
 		"\u0e01\u0e04\u0e0a\u0e0e\u0e13\u0e16\u0e1d\u0e20\u0e27\u0e2f\u0e46\u0e4b"+
 		"\u0e54\u0e57\u0e5b\u0e5e\u0e65\u0e68\u0e6d\u0e76\u0e91\u0e99\u0ea4\u0eb3"+
-		"\u0eb8\u0ebe\u0ec3\u0ec9\u0ecb\4\2\3\2\b\2\2";
+		"\u0eb8\u0ebe\u0ec3\u0ec9\u0ecb\4\3\2\2\b\2\2";
 	public static final String _serializedATN = Utils.join(
 		new String[] {
 			_serializedATNSegment0,

@@ -6,10 +6,10 @@
 lexer grammar CommonLexer;
 
 @lexer::members {
-public final static int WHITE_SPACE=1;
+public final static int WHITE_SPACE_CHANNEL=1;
 }
 
-WHITE_SPACE : ' ' -> channel(WHITE_SPACE);
+WHITE_SPACE : ' ' -> channel(WHITE_SPACE_CHANNEL);
 TAB : '\t' -> skip; //tab
 NEWLINE : '\r'? '\n' -> skip;
 

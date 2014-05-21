@@ -1,4 +1,4 @@
-// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
+// Generated from G:/Code/java/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
 package com.laudandjolynn.sqlparser;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
@@ -1119,16 +1119,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitQuantified_comparision_predicate(@NotNull Sql92Parser.Quantified_comparision_predicateContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#all}.
-	 * @param ctx the parse tree
-	 */
-	void enterAll(@NotNull Sql92Parser.AllContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#all}.
-	 * @param ctx the parse tree
-	 */
-	void exitAll(@NotNull Sql92Parser.AllContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#bit_string_literal}.
 	 * @param ctx the parse tree
 	 */
@@ -1228,16 +1218,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitValue_expression(@NotNull Sql92Parser.Value_expressionContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#nondoublequote_character}.
-	 * @param ctx the parse tree
-	 */
-	void enterNondoublequote_character(@NotNull Sql92Parser.Nondoublequote_characterContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#nondoublequote_character}.
-	 * @param ctx the parse tree
-	 */
-	void exitNondoublequote_character(@NotNull Sql92Parser.Nondoublequote_characterContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#unique_column_list}.
 	 * @param ctx the parse tree
@@ -3849,16 +3829,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitUser_name(@NotNull Sql92Parser.User_nameContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#some}.
-	 * @param ctx the parse tree
-	 */
-	void enterSome(@NotNull Sql92Parser.SomeContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#some}.
-	 * @param ctx the parse tree
-	 */
-	void exitSome(@NotNull Sql92Parser.SomeContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#set_function_specification}.
 	 * @param ctx the parse tree
 	 */
@@ -4038,16 +4008,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitNon_second_datetime_field(@NotNull Sql92Parser.Non_second_datetime_fieldContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#doublequote_symbol}.
-	 * @param ctx the parse tree
-	 */
-	void enterDoublequote_symbol(@NotNull Sql92Parser.Doublequote_symbolContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#doublequote_symbol}.
-	 * @param ctx the parse tree
-	 */
-	void exitDoublequote_symbol(@NotNull Sql92Parser.Doublequote_symbolContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#table_subquery}.
 	 * @param ctx the parse tree

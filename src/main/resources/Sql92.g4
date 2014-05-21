@@ -924,7 +924,7 @@ dynamic_declare_cursor : DECLARE cursor_name INSENSITIVE? SCROLL? CURSOR FOR sta
 identifier : (UNDERSCORE character_set_specification)? actual_identifier;
 actual_identifier : regular_identifier|delimited_identifier;
 
-regular_identifier : SQL_LANGUAGE_IDENTIFIER;
+regular_identifier : sql_language_identifier;
 
 delimited_identifier : DOUBLE_QUOTE delimited_identifier_body DOUBLE_QUOTE;
 delimited_identifier_body : delimited_identifier_part+;
@@ -935,7 +935,7 @@ schema_name : identifier;
 catalog_name : identifier;
 
 character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
-character_set_name : (catalog_name PERIOD)? (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
+character_set_name : (catalog_name PERIOD)? (schema_name PERIOD)? sql_language_identifier;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
 
@@ -1137,7 +1137,7 @@ host_identifier
 	| pascal_host_identifier
 	| pli_host_identifier
 ;
-general_identifier: SQL_LANGUAGE_IDENTIFIER;
+general_identifier: sql_language_identifier;
 ada_host_identifier : general_identifier;
 c_host_identifier : general_identifier;
 cobol_host_identifier : general_identifier;
@@ -1244,3 +1244,6 @@ nondoublequote_character : '~"';
 doublequote_symbol : '""';
 sign : PLUS_SIGN | MINUS_SIGN;
 seperator : COMMENT | WHITE_SPACE | NEWLINE;
+
+keywords : B_|C_|N_|X_;
+sql_language_identifier : keywords | IDENTIFIER;

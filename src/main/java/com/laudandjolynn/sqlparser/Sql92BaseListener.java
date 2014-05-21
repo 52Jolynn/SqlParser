@@ -221,6 +221,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLanguage_name(@NotNull Sql92Parser.Language_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLanguage_name(@NotNull Sql92Parser.Language_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDelete_rule(@NotNull Sql92Parser.Delete_ruleContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1020,6 +1032,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCondition_number(@NotNull Sql92Parser.Condition_numberContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterKeywords(@NotNull Sql92Parser.KeywordsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitKeywords(@NotNull Sql92Parser.KeywordsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2700,6 +2724,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSimple_value_specification_2(@NotNull Sql92Parser.Simple_value_specification_2Context ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSql_language_identifier(@NotNull Sql92Parser.Sql_language_identifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSql_language_identifier(@NotNull Sql92Parser.Sql_language_identifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

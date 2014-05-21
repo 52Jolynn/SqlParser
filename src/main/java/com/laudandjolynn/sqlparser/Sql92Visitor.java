@@ -114,6 +114,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDescribe_input_statement(@NotNull Sql92Parser.Describe_input_statementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#language_name}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLanguage_name(@NotNull Sql92Parser.Language_nameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#delete_rule}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -515,6 +521,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCondition_number(@NotNull Sql92Parser.Condition_numberContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#keywords}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitKeywords(@NotNull Sql92Parser.KeywordsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#sql_dynamic_data_statement}.
 	 * @param ctx the parse tree
@@ -1355,6 +1367,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSimple_value_specification_2(@NotNull Sql92Parser.Simple_value_specification_2Context ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#sql_language_identifier}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSql_language_identifier(@NotNull Sql92Parser.Sql_language_identifierContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#condition_information_item}.
 	 * @param ctx the parse tree

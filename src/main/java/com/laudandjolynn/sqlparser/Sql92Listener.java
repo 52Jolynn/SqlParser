@@ -179,6 +179,16 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitDescribe_input_statement(@NotNull Sql92Parser.Describe_input_statementContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Sql92Parser#language_name}.
+	 * @param ctx the parse tree
+	 */
+	void enterLanguage_name(@NotNull Sql92Parser.Language_nameContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql92Parser#language_name}.
+	 * @param ctx the parse tree
+	 */
+	void exitLanguage_name(@NotNull Sql92Parser.Language_nameContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#delete_rule}.
 	 * @param ctx the parse tree
 	 */
@@ -848,6 +858,16 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitCondition_number(@NotNull Sql92Parser.Condition_numberContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link Sql92Parser#keywords}.
+	 * @param ctx the parse tree
+	 */
+	void enterKeywords(@NotNull Sql92Parser.KeywordsContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql92Parser#keywords}.
+	 * @param ctx the parse tree
+	 */
+	void exitKeywords(@NotNull Sql92Parser.KeywordsContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#sql_dynamic_data_statement}.
 	 * @param ctx the parse tree
@@ -2248,6 +2268,16 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitSimple_value_specification_2(@NotNull Sql92Parser.Simple_value_specification_2Context ctx);
+	/**
+	 * Enter a parse tree produced by {@link Sql92Parser#sql_language_identifier}.
+	 * @param ctx the parse tree
+	 */
+	void enterSql_language_identifier(@NotNull Sql92Parser.Sql_language_identifierContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql92Parser#sql_language_identifier}.
+	 * @param ctx the parse tree
+	 */
+	void exitSql_language_identifier(@NotNull Sql92Parser.Sql_language_identifierContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#condition_information_item}.
 	 * @param ctx the parse tree

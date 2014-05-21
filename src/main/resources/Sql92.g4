@@ -13,16 +13,42 @@ import CommonLexer;
 
 prog : statement SEMICOLON* EOF;
 
-statement
-:
-	sql_schema_statement
-	| sql_data_statement
-	| sql_transaction_statement
-	| sql_connection_statement
-	| sql_session_statement
-	| sql_dynamic_statement
-	| sql_diagnostics_statement
+statement : direct_sql_statement|prepable_statement|procedure|module;
+
+direct_sql_statement : direct_sql_data_statement
+| sql_schema_statement
+| sql_transaction_statement
+| sql_connection_statement
+| sql_session_statement
 ;
+direct_sql_data_statement : delete_statement_searched
+| direct_select_statement_multiple_rows
+| insert_statement
+| update_statement_searched
+| temporary_table_declaration
+;
+
+prepable_statement : prepable_sql_data_statement
+| prepable_sql_schema_statement
+| prepable_sql_transaction_statement
+| prepable_sql_session_statement
+;
+
+prepable_sql_data_statement : delete_statement_searched
+| dynamic_single_row_select_statement
+| insert_statement
+| dynamic_select_statement
+| update_statement_searched
+| prepable_dynamic_delete_statement_positioned
+| prepable_dynamic_update_statement_positioned
+;
+dynamic_single_row_select_statement : query_specification;
+dynamic_select_statement : cursor_specification;
+prepable_dynamic_delete_statement_positioned : 'DELETE' ('FROM' table_name)? 'WHERE' 'CURRENT' 'OF' cursor_name;
+prepable_dynamic_update_statement_positioned : 'UPDATE' table_name? 'SET' set_clause 'WHERE' 'CURRENT' 'OF' cursor_name;
+prepable_sql_schema_statement : sql_schema_statement;
+prepable_sql_transaction_statement : sql_transaction_statement;
+prepable_sql_session_statement : sql_session_statement;
 
 sql_schema_statement
 :
@@ -46,9 +72,9 @@ sql_schema_definition_statement // ddl
 schema_definition : 'CREATE' 'SCHEMA' schema_name_clause schema_character_set_specification? schema_element+;
 schema_name_clause
 :
-	schema_name
+	(catalog_name PERIOD)? schema_name
 	| 'AUTHORIZATION' schema_authorization_identifier
-	| schema_name 'AUTHORIZATION' schema_authorization_identifier
+	| (catalog_name PERIOD)? schema_name 'AUTHORIZATION' schema_authorization_identifier
 ;
 schema_authorization_identifier : authorization_identifier;
 schema_character_set_specification : 'DEFAULT' 'CHARACTER' 'SET' character_set_specification;
@@ -87,7 +113,6 @@ character_set_source : 'GET' existing_character_set_name;
 existing_character_set_name
 :
 	standard_character_repertoire_name
-	| implementation_defined_character_repertoire_name
 	| schema_character_set_name
 ;
 
@@ -159,7 +184,7 @@ sql_schema_manipulation_statement //dml
 ;
 
 //drop schema
-drop_schema_statement : 'DROP' 'SCHEMA' schema_name drop_behaviour;
+drop_schema_statement : 'DROP' 'SCHEMA' (catalog_name PERIOD)? schema_name drop_behaviour;
 drop_behaviour : 'CASCADE'|'RESTRICT';
 
 //alter table
@@ -235,8 +260,8 @@ sql_data_statement
 	open_statement
 	| fetch_statement
 	| close_statement
-	| select_into_statement
-	| select_statement
+	| select_statement_single_row
+	| direct_select_statement_multiple_rows
 	| sql_data_change_statement
 ;
 //open stmt
@@ -270,14 +295,14 @@ target_specification
 close_statement : 'CLOSE' cursor_name;
 
 //select into
-select_into_statement : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
+select_statement_single_row : 'SELECT' set_qualifier? select_list 'INTO' select_target_list table_expression;
 //select
-select_statement : query_specification order_by_clause?;
+direct_select_statement_multiple_rows : query_specification order_by_clause?;
 
 select_list : ASTERISK|select_sublists;
 select_sublists : select_sublist (COMMA select_sublist)*;
-select_sublist :derived_column|qualifier PERIOD ASTERISK;
-derived_column : value_expression as_clause;
+select_sublist :derived_column|table_name PERIOD ASTERISK;
+derived_column : value_expression as_clause?;
 
 select_target_list : target_specification (COMMA target_specification)*;
 table_expression : from_clause where_clause? group_by_clause? having_clause?;
@@ -568,11 +593,11 @@ query_expression : non_join_query_expression|joined_table;
 
 non_join_query_expression
 :
-	simple_table
-	| LEFT_PAREN non_join_query_expression RIGHT_PAREN
+	LEFT_PAREN non_join_query_expression RIGHT_PAREN
 	| non_join_query_expression query_set_rel query_term
 	| joined_table query_set_rel query_term
 	| query_term query_intersect_rel query_primary
+	| simple_table
 ;
 
 query_set_rel : ('UNION'|'EXCEPT') 'ALL'? corresponding_spec?;
@@ -672,7 +697,7 @@ row_value_constructor
 row_value_constructor_element
 :
 	value_expression
-	 null_specification
+	| null_specification
 	| default_specification
 ;
 row_value_constructor_list : row_value_constructor_element (COMMA row_value_constructor_element)*;
@@ -887,7 +912,7 @@ module_contents
 module_name_clause : 'MODULE' module_name module_character_set_specification;
 module_name : identifier;
 module_character_set_specification :'NAMES' 'ARE' character_set_specification;
-module_authorization_clause : 'SCHEMA' schema_name;
+module_authorization_clause : 'SCHEMA' (catalog_name PERIOD)? schema_name;
 module_authorization_identifier : authorization_identifier;
 
 //cursor
@@ -906,18 +931,13 @@ delimited_identifier_body : delimited_identifier_part+;
 delimited_identifier_part : nondoublequote_character|doublequote_symbol;
 
 //SCHEMA NAME
-schema_name : (catalog_name PERIOD)? unqualified_schema_name;
+schema_name : identifier;
 catalog_name : identifier;
-unqualified_schema_name : identifier;
 
 character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
-character_set_name : (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
+character_set_name : (catalog_name PERIOD)? (schema_name PERIOD)? SQL_LANGUAGE_IDENTIFIER;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
-implementation_defined_character_repertoire_name : character_set_name;
-user_defined_character_repertoire_name : character_set_name;
-standard_universal_character_form_of_use_name : character_set_name;
-implementation_defined_universal_character_form_of_use_name : character_set_name;
 
 //table
 table_name
@@ -965,7 +985,7 @@ grouping_column_reference : column_reference collate_clause?;
 order_by_clause : 'ORDER' 'BY' sort_specification_list;
 sort_specification_list : sort_specification (COMMA sort_specification)*;
 sort_specification : sort_key collate_clause? ordering_specification?;
-sort_key : column_name|UNSIGNED_INTEGER;
+sort_key : (table_name PERIOD)? column_name|UNSIGNED_INTEGER;
 ordering_specification : 'ASC'|'DESC';
 updatability_clause : 'FOR' ('READ' 'ONLY'|'UPDATE' ('OF' column_name_list)?);
 
@@ -1210,16 +1230,12 @@ correlation_name : identifier;
 statement_name : identifier;
 qualified_identifier : identifier;
 local_table_name : qualified_identifier;
-qualifier
-:
-	table_name
-	| correlation_name
-;
+
 qualified_local_table_name : 'MODULE' PERIOD local_table_name;
-column_reference : (qualifier PERIOD)? column_name;
+column_reference : (table_name PERIOD)? column_name;
 
 domain_name : qualified_name;
-qualified_name : (schema_name PERIOD)? qualified_identifier;
+qualified_name : (catalog_name PERIOD)? (schema_name PERIOD)? qualified_identifier;
 parameter_name : COLON identifier;
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;

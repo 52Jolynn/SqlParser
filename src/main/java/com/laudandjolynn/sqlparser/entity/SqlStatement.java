@@ -6,6 +6,6 @@ package com.laudandjolynn.sqlparser.entity;
  * @date: 2014年5月7日 下午9:11:37
  * @copyright: www.laudandjolynn.com
  */
-public interface SqlStatement {
+public interface SqlStatement extends SqlFragemnt {
 	public String getSql();
 }

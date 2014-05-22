@@ -6,6 +6,8 @@ package com.laudandjolynn.sqlparser.entity;
  * @date: 2014年5月7日 下午9:20:02
  * @copyright: www.laudandjolynn.com
  */
-public class Select extends DmlStatement {
-
+public class Select extends AbstractSqlStatement {
+    public Select(String sql) {
+        super(sql);
+    }
 }

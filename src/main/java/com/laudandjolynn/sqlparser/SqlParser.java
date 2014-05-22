@@ -11,9 +11,11 @@
 package com.laudandjolynn.sqlparser;
 
 import com.laudandjolynn.sqlparser.entity.SqlStatement;
+import com.laudandjolynn.sqlparser.entity.SqlStatementVisitor;
+import com.laudandjolynn.sqlparser.parser.Sql92Lexer;
+import com.laudandjolynn.sqlparser.parser.Sql92Parser;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,21 +34,17 @@ public class SqlParser {
         SqlStatement stmt = parse(sql);
     }
 
-    public static SqlStatement parse(String sql) {
+    public static SqlStatement parse(final String sql) {
         ANTLRInputStream input = new ANTLRInputStream(sql);
         Sql92Lexer lexer = new Sql92Lexer(input);
-        CommonTokenStream tokenStream = new CommonTokenStream(lexer);
-        tokenStream.fill();
-        logger.debug("all tokens: " + tokenStream.getTokens().toString());
-        Sql92Parser parser = new Sql92Parser(tokenStream);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        tokens.fill();
+        logger.debug("all tokens: " + tokens.getTokens().toString());
+        Sql92Parser parser = new Sql92Parser(tokens);
         ParseTree tree = parser.prog();
         logger.debug("parse tree: " + tree.toStringTree(parser));
-        tree.accept(new Sql92BaseVisitor<Object>() {
-            @Override
-            public Object visitProg(@NotNull Sql92Parser.ProgContext ctx) {
-                return super.visitProg(ctx);    //To change body of overridden methods use File | Settings | File Templates.
-            }
-        });
-        return null;
+        SqlStatementVisitor visitor = new SqlStatementVisitor(sql);
+        tree.accept(visitor);
+        return visitor.getStatement();
     }
 }

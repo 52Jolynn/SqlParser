@@ -925,13 +925,13 @@ identifier : (UNDERSCORE character_set_specification)? actual_identifier;
 actual_identifier : regular_identifier|delimited_identifier;
 
 regular_identifier : sql_language_identifier;
-delimited_identifier : DOUBLEQUOTE_STRING;
+delimited_identifier : DOUBLEQUOTE_STRING_LITERAL;
 
 //SCHEMA NAME
 schema_name : identifier;
 catalog_name : identifier;
 
-character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING (seperator+ QUOTE_STRING)*;
+character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING_LITERAL (seperator+ QUOTE_STRING_LITERAL)*;
 character_set_name : (catalog_name PERIOD)? (schema_name PERIOD)? sql_language_identifier;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
@@ -1018,11 +1018,11 @@ general_literal
 	| interval_literal
 ;
 //national character string literal
-national_character_string_literal : N_ QUOTE_STRING (seperator+ QUOTE_STRING)*;
+national_character_string_literal : NATIONAL_CHARACTER_STRING_LITERAL;
 //bit string literal
-bit_string_literal : B_ QUOTE_BIT (seperator+ QUOTE_BIT)*; //B'01111'
+bit_string_literal : BIT_STRING_LITERAL; //B'01111'
 //hex string literal
-hex_string_literal : X_ QUOTE_HEX (seperator+ QUOTE_HEX)*; //X'FFEE'
+hex_string_literal : HEX_STRING_LITERAL; //X'FFEE'
 
 //datetime literal
 datetime_literal

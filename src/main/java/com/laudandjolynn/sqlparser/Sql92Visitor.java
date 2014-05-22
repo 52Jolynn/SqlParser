@@ -198,6 +198,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExternal_translation(@NotNull Sql92Parser.External_translationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#quote_string_literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#external_collation_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -881,12 +887,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#seperator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSeperator(@NotNull Sql92Parser.SeperatorContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#prepable_sql_data_statement}.
 	 * @param ctx the parse tree

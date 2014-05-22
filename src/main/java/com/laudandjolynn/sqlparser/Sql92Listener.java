@@ -319,6 +319,16 @@ public interface Sql92Listener extends ParseTreeListener {
 	 */
 	void exitExternal_translation(@NotNull Sql92Parser.External_translationContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link Sql92Parser#quote_string_literal}.
+	 * @param ctx the parse tree
+	 */
+	void enterQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link Sql92Parser#quote_string_literal}.
+	 * @param ctx the parse tree
+	 */
+	void exitQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#external_collation_name}.
 	 * @param ctx the parse tree
 	 */
@@ -1458,16 +1468,6 @@ public interface Sql92Listener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link Sql92Parser#seperator}.
-	 * @param ctx the parse tree
-	 */
-	void enterSeperator(@NotNull Sql92Parser.SeperatorContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link Sql92Parser#seperator}.
-	 * @param ctx the parse tree
-	 */
-	void exitSeperator(@NotNull Sql92Parser.SeperatorContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link Sql92Parser#prepable_sql_data_statement}.
 	 * @param ctx the parse tree

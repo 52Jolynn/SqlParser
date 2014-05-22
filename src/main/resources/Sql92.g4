@@ -931,7 +931,8 @@ delimited_identifier : DOUBLEQUOTE_STRING_LITERAL;
 schema_name : identifier;
 catalog_name : identifier;
 
-character_string_literal : (UNDERSCORE character_set_specification)? QUOTE_STRING_LITERAL (seperator+ QUOTE_STRING_LITERAL)*;
+character_string_literal : (UNDERSCORE character_set_specification)? quote_string_literal;
+quote_string_literal : QUOTE_STRING_LITERAL|TIMESTAMP_STRING|DATE_STRING|TIME_STRING|INTERVAL_STRING;
 character_set_name : (catalog_name PERIOD)? (schema_name PERIOD)? sql_language_identifier;
 character_set_specification : character_set_name;
 standard_character_repertoire_name : character_set_name;
@@ -1233,7 +1234,6 @@ parameter_name : COLON identifier;
 form_of_use_conversion : qualified_name;
 translation_name : qualified_name;
 sign : PLUS_SIGN | MINUS_SIGN;
-seperator : COMMENT | WHITE_SPACE | NEWLINE;
 
 sql_language_identifier : keywords | IDENTIFIER;
 keywords :

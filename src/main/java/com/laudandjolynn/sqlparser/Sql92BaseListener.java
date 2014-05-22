@@ -389,6 +389,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExternal_collation_name(@NotNull Sql92Parser.External_collation_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1752,18 +1764,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSeperator(@NotNull Sql92Parser.SeperatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSeperator(@NotNull Sql92Parser.SeperatorContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

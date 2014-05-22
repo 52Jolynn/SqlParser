@@ -6,6 +6,6 @@ package com.laudandjolynn.sqlparser.entity;
  * @date: 2014年5月7日 下午9:20:33
  * @copyright: www.laudandjolynn.com
  */
-public class Update extends DmlStatement {
+public class Update extends AbstractSqlStatement {
 
 }

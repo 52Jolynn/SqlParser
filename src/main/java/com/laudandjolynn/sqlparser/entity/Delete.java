@@ -6,6 +6,6 @@ package com.laudandjolynn.sqlparser.entity;
  * @date: 2014年5月7日 下午9:20:24
  * @copyright: www.laudandjolynn.com
  */
-public class Delete extends DmlStatement {
+public class Delete extends AbstractSqlStatement {
 
 }

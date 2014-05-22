@@ -6,6 +6,6 @@ package com.laudandjolynn.sqlparser.entity;
  * @date: 2014年5月7日 下午9:21:05
  * @copyright: www.laudandjolynn.com
  */
-public class CreateTable extends DdlStatement {
+public class CreateTable extends AbstractSqlStatement {
 
 }

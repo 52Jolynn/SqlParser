@@ -2,6 +2,8 @@ package com.laudandjolynn.sqlparser.utils;
 
 import com.laudandjolynn.sqlparser.entity.SqlStatement;
 import com.laudandjolynn.sqlparser.parser.Sql92BaseVisitor;
+import com.laudandjolynn.sqlparser.parser.Sql92Parser;
+import org.antlr.v4.runtime.misc.NotNull;
 
 /**
  * User: tdhuang
@@ -10,14 +12,14 @@ import com.laudandjolynn.sqlparser.parser.Sql92BaseVisitor;
  */
 public abstract class AbstractSqlStatementVisitor extends Sql92BaseVisitor<Object> {
     protected String sql = null;
-    protected SqlStatement statement = null;
+    private SqlStatement statement = null;
 
     public AbstractSqlStatementVisitor(String sql) {
         this.sql = sql;
     }
 
-    public SqlStatement getStatement() {
-        return statement;
+    protected void assign(SqlStatement statement) {
+        this.statement = statement;
     }
 
     public String getSql() {
@@ -26,6 +28,12 @@ public abstract class AbstractSqlStatementVisitor extends Sql92BaseVisitor<Objec
 
     public void setSql(String sql) {
         this.sql = sql;
+    }
+
+    @Override
+    public Object visitProg(@NotNull Sql92Parser.ProgContext ctx) {
+        visitChildren(ctx);
+        return statement;
     }
 
     @Override

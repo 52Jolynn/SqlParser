@@ -60,9 +60,8 @@ public class SqlParser {
 
         SqlTreeAlterVisitorFinder finder = new SqlTreeAlterVisitorFinder(sql, tree);
         AbstractSqlStatementVisitor visitor = finder.find();
-        tree.accept(visitor);
 
-        return visitor.getStatement();
+        return (SqlStatement)tree.accept(visitor);
     }
 
     private class SqlTreeAlterVisitorFinder extends Sql92BaseVisitor<Void> {

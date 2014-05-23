@@ -16,7 +16,8 @@ public class UpdateVisitor extends AbstractSqlStatementVisitor {
 
     @Override
     public Object visitUpdate(@NotNull Sql92Parser.UpdateContext ctx) {
-        statement = new Update();
+        Update update = new Update();
+        assign(update);
         return null;
     }
 }

@@ -22,7 +22,7 @@ import junit.framework.TestCase;
  */
 public class SqlParserTest extends TestCase {
     public void testParser() {
-        String sql = "select * from a";
+        String sql = "select * from a order by a.id desc";
         SqlStatement statement = SqlParser.getInstance().parse(sql);
         System.out.println(statement);
     }

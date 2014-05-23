@@ -11,40 +11,85 @@
 package com.laudandjolynn.sqlparser;
 
 import com.laudandjolynn.sqlparser.entity.SqlStatement;
-import com.laudandjolynn.sqlparser.entity.SqlStatementVisitor;
+import com.laudandjolynn.sqlparser.parser.Sql92BaseVisitor;
 import com.laudandjolynn.sqlparser.parser.Sql92Lexer;
 import com.laudandjolynn.sqlparser.parser.Sql92Parser;
+import com.laudandjolynn.sqlparser.utils.AbstractSqlStatementVisitor;
+import com.laudandjolynn.sqlparser.utils.SelectVisitor;
+import com.laudandjolynn.sqlparser.utils.UpdateVisitor;
 import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author: Laud
- * @email: htd0324@gmail.com
- * @date: 2014年5月7日 上午9:24:00
- * @copyright: www.laudandjolynn.com
+ * Author: Laud
+ * Email: htd0324@gmail.com
+ * Date: 2014年5月7日 上午9:24:00
+ * Copyright: www.laudandjolynn.com
  */
 public class SqlParser {
     private final static Logger logger = LoggerFactory.getLogger(SqlParser.class);
+    private final static SqlParser parser = new SqlParser();
 
-    public static void main(String[] args) {
-        String sql = "SELECT * FROM a";
-        SqlStatement stmt = parse(sql);
+    private SqlParser(){
     }
 
-    public static SqlStatement parse(final String sql) {
+    public static SqlParser getInstance() {
+        return parser;
+    }
+
+    /**
+     * 解析sql
+     * @param sql SQL语句
+     * @return
+     */
+    public SqlStatement parse(String sql) {
         ANTLRInputStream input = new ANTLRInputStream(sql);
         Sql92Lexer lexer = new Sql92Lexer(input);
+
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         tokens.fill();
         logger.debug("all tokens: " + tokens.getTokens().toString());
+
         Sql92Parser parser = new Sql92Parser(tokens);
         ParseTree tree = parser.prog();
         logger.debug("parse tree: " + tree.toStringTree(parser));
-        SqlStatementVisitor visitor = new SqlStatementVisitor(sql);
+
+        SqlTreeAlterVisitorFinder finder = new SqlTreeAlterVisitorFinder(sql, tree);
+        AbstractSqlStatementVisitor visitor = finder.find();
         tree.accept(visitor);
+
         return visitor.getStatement();
+    }
+
+    private class SqlTreeAlterVisitorFinder extends Sql92BaseVisitor<Void> {
+        private AbstractSqlStatementVisitor visitor = null;
+        private String sql = null;
+        private ParseTree tree = null;
+
+        public SqlTreeAlterVisitorFinder(String sql, ParseTree tree) {
+            this.sql = sql;
+            this.tree = tree;
+        }
+
+        public AbstractSqlStatementVisitor find() {
+            visit(tree);
+            return visitor;
+        }
+
+        @Override
+        public Void visitSelect(@NotNull Sql92Parser.SelectContext ctx) {
+            visitor = new SelectVisitor(sql);
+            return null;
+        }
+
+        @Override
+        public Void visitUpdate(@NotNull Sql92Parser.UpdateContext ctx) {
+            visitor = new UpdateVisitor(sql);
+            return null;
+        }
     }
 }

@@ -13,7 +13,11 @@ import CommonLexer;
 
 prog : statement SEMICOLON* EOF;
 
-statement : direct_sql_statement|prepable_statement|procedure|module;
+statement : direct_sql_statement
+| preparable_statement
+| procedure
+| module
+;
 
 direct_sql_statement : direct_sql_data_statement
 | sql_schema_statement
@@ -28,7 +32,7 @@ direct_sql_data_statement : delete_statement_searched
 | temporary_table_declaration
 ;
 
-prepable_statement : prepable_sql_data_statement
+preparable_statement : prepable_sql_data_statement
 | prepable_sql_schema_statement
 | prepable_sql_transaction_statement
 | prepable_sql_session_statement
@@ -297,7 +301,7 @@ close_statement : CLOSE cursor_name;
 //select into
 select_statement_single_row : SELECT set_qualifier? select_list INTO select_target_list table_expression;
 //select
-direct_select_statement_multiple_rows : query_specification order_by_clause?;
+direct_select_statement_multiple_rows : query_specification order_by_clause? #select;
 
 select_list : ASTERISK|select_sublists;
 select_sublists : select_sublist (COMMA select_sublist)*;
@@ -308,7 +312,7 @@ select_target_list : target_specification (COMMA target_specification)*;
 table_expression : from_clause where_clause? group_by_clause? having_clause?;
 
 //from clause
-from_clause : FROM table_reference (COMMA table_reference)*;
+from_clause : FROM table_reference (COMMA table_reference)* #fromClause;
 table_reference
 :
 	normal_table
@@ -344,10 +348,10 @@ named_columns_join : USING LEFT_PAREN join_column_list RIGHT_PAREN;
 join_column_list : column_name_list;
 
 //where clause
-where_clause : WHERE search_condition;
+where_clause : WHERE search_condition #whereClause;
 
 //having clause
-having_clause : HAVING search_condition;
+having_clause : HAVING search_condition #havingClause;
 
 //update、insert、delete
 
@@ -362,10 +366,10 @@ sql_data_change_statement
 
 //delete
 delete_statement_positioned : DELETE FROM table_name WHERE CURRENT OF cursor_name;
-delete_statement_searched : DELETE FROM table_name (WHERE search_condition)?;
+delete_statement_searched : DELETE FROM table_name (WHERE search_condition)? #delete;
 
 //insert
-insert_statement : INSERT INTO table_name insert_columns_and_source;
+insert_statement : INSERT INTO table_name insert_columns_and_source #insert;
 insert_columns_and_source
 :
 	(LEFT_PAREN insert_column_list RIGHT_PAREN)? query_expression
@@ -379,7 +383,7 @@ set_clause_list : set_clause (COMMA set_clause)*;
 set_clause : object_column EQ update_source;
 object_column : column_name;
 update_source : value_expression|null_specification|DEFAULT;
-update_statement_searched : UPDATE table_name SET set_clause_list (WHERE search_condition)?;
+update_statement_searched : UPDATE table_name SET set_clause_list (WHERE search_condition)? #update;
 
 //sql transaction
 sql_transaction_statement
@@ -613,7 +617,7 @@ simple_table
 	| table_value_constructor
 	| explicit_table
 ;
-query_specification : SELECT set_qualifier? select_list table_expression;
+query_specification : SELECT set_qualifier? select_list table_expression #selectClause;
 table_value_constructor : VALUES table_value_constructor_list;
 table_value_constructor_list : row_value_constructor (COMMA row_value_constructor);
 explicit_table : TABLE table_name;
@@ -623,7 +627,7 @@ table_element_list : LEFT_PAREN table_element (COMMA table_element)* RIGHT_PAREN
 table_element : column_definition | table_constraint_definition;
 
 //column definition
-column_definition : column_name (data_type|domain_name) default_clause? column_constraint_definition* collate_clause?;
+column_definition : column_name (data_type|domain_name) default_clause? column_constraint_definition* collate_clause? #columnDef;
 //column constraint
 column_constraint_definition : constraint_name_definition? column_constraint constraint_attributes?;
 column_constraint
@@ -792,12 +796,12 @@ case_specification
 	simple_case
 	| searched_case
 ;
-simple_case : CASE case_operand simple_when_clause+ else_clause? END;
-searched_case : CASE searched_when_clause+ else_clause? END;
-case_operand : value_expression;
-simple_when_clause : WHEN when_operand THEN result;
-else_clause : ELSE result;
-when_operand : value_expression;
+simple_case : CASE case_operand simple_when_clause+ else_clause? END #simpleCase;
+searched_case : CASE searched_when_clause+ else_clause? END #searchedCase;
+case_operand : value_expression #caseOperand;
+simple_when_clause : WHEN when_operand THEN result #simpleWhenClause;
+else_clause : ELSE result #elseClause;
+when_operand : value_expression #whenOperand;
 result
 :
 	result_expression
@@ -910,7 +914,7 @@ module_contents
 	| procedure
 ;
 module_name_clause : MODULE module_name module_character_set_specification;
-module_name : identifier;
+module_name : identifier #moduleName;
 module_character_set_specification :NAMES ARE character_set_specification;
 module_authorization_clause : SCHEMA (catalog_name PERIOD)? schema_name;
 module_authorization_identifier : authorization_identifier;
@@ -928,8 +932,8 @@ regular_identifier : sql_language_identifier;
 delimited_identifier : DOUBLEQUOTE_STRING_LITERAL;
 
 //SCHEMA NAME
-schema_name : identifier;
-catalog_name : identifier;
+schema_name : identifier #schemaName;
+catalog_name : identifier #catalogName;
 
 character_string_literal : (UNDERSCORE character_set_specification)? quote_string_literal;
 quote_string_literal : QUOTE_STRING_LITERAL|TIMESTAMP_STRING|DATE_STRING|TIME_STRING|INTERVAL_STRING;
@@ -945,8 +949,8 @@ table_name
 ;
 
 //constraint
-constraint_name_definition : CONSTRAINT constraint_name;
-constraint_name : qualified_name;
+constraint_name_definition : CONSTRAINT constraint_name #constraintNameDef;
+constraint_name : qualified_name #constraintName;
 unique_specification : UNIQUE|PRIMARY KEY;
 references_specification : REFERENCES referenced_table_and_columns (MATCH match_type)? referential_triggered_action?;
 referenced_table_and_columns : table_name (LEFT_PAREN reference_column_list RIGHT_PAREN)?;
@@ -968,19 +972,19 @@ referential_constraint_definition : FOREIGN KEY LEFT_PAREN referencing_columns R
 referencing_columns : reference_column_list;
 
 //collate_clause
-collate_clause : COLLATE collation_name;
-collation_name : qualified_name;
+collate_clause : COLLATE collation_name #collateClause;
+collation_name : qualified_name #collationName;
 
 //as clause
-as_clause : AS column_name;
+as_clause : AS column_name #asClause;
 
 //group by clause
-group_by_clause : GROUP BY grouping_column_reference_list;
+group_by_clause : GROUP BY grouping_column_reference_list #groupByClause;
 grouping_column_reference_list : grouping_column_reference (COMMA grouping_column_reference)*;
 grouping_column_reference : column_reference collate_clause?;
 
 //order by clause
-order_by_clause : ORDER BY sort_specification_list;
+order_by_clause : ORDER BY sort_specification_list #orderByClause;
 sort_specification_list : sort_specification (COMMA sort_specification)*;
 sort_specification : sort_key collate_clause? ordering_specification?;
 sort_key : (table_name PERIOD)? column_name|UNSIGNED_INTEGER;
@@ -1050,8 +1054,8 @@ current_time_value_function : CURRENT_TIME (LEFT_PAREN time_precision RIGHT_PARE
 current_timestamp_value_function : CURRENT_TIMESTAMP (LEFT_PAREN timestamp_precision RIGHT_PAREN)?;
 
 //column definition
-column_name : identifier;
-column_name_list : column_name (COMMA column_name)*;
+column_name : identifier #columnName;
+column_name_list : column_name (COMMA column_name)* #columnNames;
 
 //data type
 data_type
@@ -1219,20 +1223,20 @@ precision : UNSIGNED_INTEGER;
 scale : UNSIGNED_INTEGER;
 
 authorization_identifier : identifier;
-cursor_name : identifier;
-correlation_name : identifier;
-statement_name : identifier;
+cursor_name : identifier #cursorName;
+correlation_name : identifier #correlationName;
+statement_name : identifier #statementName;
 qualified_identifier : identifier;
 local_table_name : qualified_identifier;
 
 qualified_local_table_name : MODULE PERIOD local_table_name;
 column_reference : (table_name PERIOD)? column_name;
 
-domain_name : qualified_name;
+domain_name : qualified_name #domainName;
 qualified_name : (catalog_name PERIOD)? (schema_name PERIOD)? qualified_identifier;
 parameter_name : COLON identifier;
 form_of_use_conversion : qualified_name;
-translation_name : qualified_name;
+translation_name : qualified_name #translationName;
 sign : PLUS_SIGN | MINUS_SIGN;
 
 sql_language_identifier : keywords | IDENTIFIER;

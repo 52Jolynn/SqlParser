@@ -143,7 +143,7 @@ public class Sql92Parser extends Parser {
 	};
 	public static final int
 		RULE_prog = 0, RULE_statement = 1, RULE_direct_sql_statement = 2, RULE_direct_sql_data_statement = 3, 
-		RULE_prepable_statement = 4, RULE_prepable_sql_data_statement = 5, RULE_dynamic_single_row_select_statement = 6, 
+		RULE_preparable_statement = 4, RULE_prepable_sql_data_statement = 5, RULE_dynamic_single_row_select_statement = 6, 
 		RULE_dynamic_select_statement = 7, RULE_prepable_dynamic_delete_statement_positioned = 8, 
 		RULE_prepable_dynamic_update_statement_positioned = 9, RULE_prepable_sql_schema_statement = 10, 
 		RULE_prepable_sql_transaction_statement = 11, RULE_prepable_sql_session_statement = 12, 
@@ -315,7 +315,7 @@ public class Sql92Parser extends Parser {
 		RULE_sql_language_identifier = 465, RULE_keywords = 466;
 	public static final String[] ruleNames = {
 		"prog", "statement", "direct_sql_statement", "direct_sql_data_statement", 
-		"prepable_statement", "prepable_sql_data_statement", "dynamic_single_row_select_statement", 
+		"preparable_statement", "prepable_sql_data_statement", "dynamic_single_row_select_statement", 
 		"dynamic_select_statement", "prepable_dynamic_delete_statement_positioned", 
 		"prepable_dynamic_update_statement_positioned", "prepable_sql_schema_statement", 
 		"prepable_sql_transaction_statement", "prepable_sql_session_statement", 
@@ -533,14 +533,14 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class StatementContext extends ParserRuleContext {
-		public Prepable_statementContext prepable_statement() {
-			return getRuleContext(Prepable_statementContext.class,0);
-		}
 		public ModuleContext module() {
 			return getRuleContext(ModuleContext.class,0);
 		}
 		public ProcedureContext procedure() {
 			return getRuleContext(ProcedureContext.class,0);
+		}
+		public Preparable_statementContext preparable_statement() {
+			return getRuleContext(Preparable_statementContext.class,0);
 		}
 		public Direct_sql_statementContext direct_sql_statement() {
 			return getRuleContext(Direct_sql_statementContext.class,0);
@@ -579,7 +579,7 @@ public class Sql92Parser extends Parser {
 			case 2:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(944); prepable_statement();
+				setState(944); preparable_statement();
 				}
 				break;
 			case 3:
@@ -777,7 +777,7 @@ public class Sql92Parser extends Parser {
 		return _localctx;
 	}
 
-	public static class Prepable_statementContext extends ParserRuleContext {
+	public static class Preparable_statementContext extends ParserRuleContext {
 		public Prepable_sql_transaction_statementContext prepable_sql_transaction_statement() {
 			return getRuleContext(Prepable_sql_transaction_statementContext.class,0);
 		}
@@ -790,28 +790,28 @@ public class Sql92Parser extends Parser {
 		public Prepable_sql_session_statementContext prepable_sql_session_statement() {
 			return getRuleContext(Prepable_sql_session_statementContext.class,0);
 		}
-		public Prepable_statementContext(ParserRuleContext parent, int invokingState) {
+		public Preparable_statementContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_prepable_statement; }
+		@Override public int getRuleIndex() { return RULE_preparable_statement; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterPrepable_statement(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterPreparable_statement(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitPrepable_statement(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitPreparable_statement(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitPrepable_statement(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitPreparable_statement(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final Prepable_statementContext prepable_statement() throws RecognitionException {
-		Prepable_statementContext _localctx = new Prepable_statementContext(_ctx, getState());
-		enterRule(_localctx, 8, RULE_prepable_statement);
+	public final Preparable_statementContext preparable_statement() throws RecognitionException {
+		Preparable_statementContext _localctx = new Preparable_statementContext(_ctx, getState());
+		enterRule(_localctx, 8, RULE_preparable_statement);
 		try {
 			setState(967);
 			switch ( getInterpreter().adaptivePredict(_input,4,_ctx) ) {
@@ -6395,27 +6395,35 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Direct_select_statement_multiple_rowsContext extends ParserRuleContext {
+		public Direct_select_statement_multiple_rowsContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_direct_select_statement_multiple_rows; }
+	 
+		public Direct_select_statement_multiple_rowsContext() { }
+		public void copyFrom(Direct_select_statement_multiple_rowsContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SelectContext extends Direct_select_statement_multiple_rowsContext {
 		public Order_by_clauseContext order_by_clause() {
 			return getRuleContext(Order_by_clauseContext.class,0);
 		}
 		public Query_specificationContext query_specification() {
 			return getRuleContext(Query_specificationContext.class,0);
 		}
-		public Direct_select_statement_multiple_rowsContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_direct_select_statement_multiple_rows; }
+		public SelectContext(Direct_select_statement_multiple_rowsContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterDirect_select_statement_multiple_rows(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSelect(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitDirect_select_statement_multiple_rows(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSelect(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitDirect_select_statement_multiple_rows(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSelect(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -6425,6 +6433,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 192, RULE_direct_select_statement_multiple_rows);
 		int _la;
 		try {
+			_localctx = new SelectContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1532); query_specification();
@@ -7154,6 +7163,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class From_clauseContext extends ParserRuleContext {
+		public From_clauseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_from_clause; }
+	 
+		public From_clauseContext() { }
+		public void copyFrom(From_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class FromClauseContext extends From_clauseContext {
 		public List<TerminalNode> COMMA() { return getTokens(Sql92Parser.COMMA); }
 		public Table_referenceContext table_reference(int i) {
 			return getRuleContext(Table_referenceContext.class,i);
@@ -7165,21 +7185,18 @@ public class Sql92Parser extends Parser {
 			return getRuleContexts(Table_referenceContext.class);
 		}
 		public TerminalNode FROM() { return getToken(Sql92Parser.FROM, 0); }
-		public From_clauseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_from_clause; }
+		public FromClauseContext(From_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterFrom_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterFromClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitFrom_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitFromClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitFrom_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitFromClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -7189,6 +7206,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 206, RULE_from_clause);
 		try {
 			int _alt;
+			_localctx = new FromClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1577); match(FROM);
@@ -8283,25 +8301,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Where_clauseContext extends ParserRuleContext {
-		public TerminalNode WHERE() { return getToken(Sql92Parser.WHERE, 0); }
-		public Search_conditionContext search_condition() {
-			return getRuleContext(Search_conditionContext.class,0);
-		}
 		public Where_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_where_clause; }
+	 
+		public Where_clauseContext() { }
+		public void copyFrom(Where_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class WhereClauseContext extends Where_clauseContext {
+		public TerminalNode WHERE() { return getToken(Sql92Parser.WHERE, 0); }
+		public Search_conditionContext search_condition() {
+			return getRuleContext(Search_conditionContext.class,0);
+		}
+		public WhereClauseContext(Where_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterWhere_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterWhereClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitWhere_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitWhereClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitWhere_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitWhereClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8310,6 +8336,7 @@ public class Sql92Parser extends Parser {
 		Where_clauseContext _localctx = new Where_clauseContext(_ctx, getState());
 		enterRule(_localctx, 232, RULE_where_clause);
 		try {
+			_localctx = new WhereClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1666); match(WHERE);
@@ -8328,25 +8355,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Having_clauseContext extends ParserRuleContext {
-		public TerminalNode HAVING() { return getToken(Sql92Parser.HAVING, 0); }
-		public Search_conditionContext search_condition() {
-			return getRuleContext(Search_conditionContext.class,0);
-		}
 		public Having_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_having_clause; }
+	 
+		public Having_clauseContext() { }
+		public void copyFrom(Having_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class HavingClauseContext extends Having_clauseContext {
+		public TerminalNode HAVING() { return getToken(Sql92Parser.HAVING, 0); }
+		public Search_conditionContext search_condition() {
+			return getRuleContext(Search_conditionContext.class,0);
+		}
+		public HavingClauseContext(Having_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterHaving_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterHavingClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitHaving_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitHavingClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitHaving_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitHavingClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8355,6 +8390,7 @@ public class Sql92Parser extends Parser {
 		Having_clauseContext _localctx = new Having_clauseContext(_ctx, getState());
 		enterRule(_localctx, 234, RULE_having_clause);
 		try {
+			_localctx = new HavingClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1669); match(HAVING);
@@ -8514,6 +8550,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Delete_statement_searchedContext extends ParserRuleContext {
+		public Delete_statement_searchedContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_delete_statement_searched; }
+	 
+		public Delete_statement_searchedContext() { }
+		public void copyFrom(Delete_statement_searchedContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class DeleteContext extends Delete_statement_searchedContext {
 		public TerminalNode WHERE() { return getToken(Sql92Parser.WHERE, 0); }
 		public Search_conditionContext search_condition() {
 			return getRuleContext(Search_conditionContext.class,0);
@@ -8523,21 +8570,18 @@ public class Sql92Parser extends Parser {
 			return getRuleContext(Table_nameContext.class,0);
 		}
 		public TerminalNode FROM() { return getToken(Sql92Parser.FROM, 0); }
-		public Delete_statement_searchedContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_delete_statement_searched; }
+		public DeleteContext(Delete_statement_searchedContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterDelete_statement_searched(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterDelete(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitDelete_statement_searched(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitDelete(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitDelete_statement_searched(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitDelete(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8547,6 +8591,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 240, RULE_delete_statement_searched);
 		int _la;
 		try {
+			_localctx = new DeleteContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1687); match(DELETE);
@@ -8575,6 +8620,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Insert_statementContext extends ParserRuleContext {
+		public Insert_statementContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_insert_statement; }
+	 
+		public Insert_statementContext() { }
+		public void copyFrom(Insert_statementContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class InsertContext extends Insert_statementContext {
 		public Insert_columns_and_sourceContext insert_columns_and_source() {
 			return getRuleContext(Insert_columns_and_sourceContext.class,0);
 		}
@@ -8583,21 +8639,18 @@ public class Sql92Parser extends Parser {
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
-		public Insert_statementContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_insert_statement; }
+		public InsertContext(Insert_statementContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterInsert_statement(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterInsert(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitInsert_statement(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitInsert(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitInsert_statement(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitInsert(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -8606,6 +8659,7 @@ public class Sql92Parser extends Parser {
 		Insert_statementContext _localctx = new Insert_statementContext(_ctx, getState());
 		enterRule(_localctx, 242, RULE_insert_statement);
 		try {
+			_localctx = new InsertContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1694); match(INSERT);
@@ -9023,6 +9077,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Update_statement_searchedContext extends ParserRuleContext {
+		public Update_statement_searchedContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_update_statement_searched; }
+	 
+		public Update_statement_searchedContext() { }
+		public void copyFrom(Update_statement_searchedContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class UpdateContext extends Update_statement_searchedContext {
 		public TerminalNode WHERE() { return getToken(Sql92Parser.WHERE, 0); }
 		public TerminalNode SET() { return getToken(Sql92Parser.SET, 0); }
 		public Search_conditionContext search_condition() {
@@ -9035,21 +9100,18 @@ public class Sql92Parser extends Parser {
 		public Table_nameContext table_name() {
 			return getRuleContext(Table_nameContext.class,0);
 		}
-		public Update_statement_searchedContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_update_statement_searched; }
+		public UpdateContext(Update_statement_searchedContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterUpdate_statement_searched(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterUpdate(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitUpdate_statement_searched(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitUpdate(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitUpdate_statement_searched(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitUpdate(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -9059,6 +9121,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 258, RULE_update_statement_searched);
 		int _la;
 		try {
+			_localctx = new UpdateContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(1740); match(UPDATE);
@@ -14794,6 +14857,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Query_specificationContext extends ParserRuleContext {
+		public Query_specificationContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_query_specification; }
+	 
+		public Query_specificationContext() { }
+		public void copyFrom(Query_specificationContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SelectClauseContext extends Query_specificationContext {
 		public Table_expressionContext table_expression() {
 			return getRuleContext(Table_expressionContext.class,0);
 		}
@@ -14804,21 +14878,18 @@ public class Sql92Parser extends Parser {
 		public Select_listContext select_list() {
 			return getRuleContext(Select_listContext.class,0);
 		}
-		public Query_specificationContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_query_specification; }
+		public SelectClauseContext(Query_specificationContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterQuery_specification(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSelectClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitQuery_specification(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSelectClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitQuery_specification(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSelectClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -14827,6 +14898,7 @@ public class Sql92Parser extends Parser {
 		Query_specificationContext _localctx = new Query_specificationContext(_ctx, getState());
 		enterRule(_localctx, 452, RULE_query_specification);
 		try {
+			_localctx = new SelectClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2285); match(SELECT);
@@ -15121,6 +15193,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Column_definitionContext extends ParserRuleContext {
+		public Column_definitionContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_column_definition; }
+	 
+		public Column_definitionContext() { }
+		public void copyFrom(Column_definitionContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ColumnDefContext extends Column_definitionContext {
 		public Default_clauseContext default_clause() {
 			return getRuleContext(Default_clauseContext.class,0);
 		}
@@ -15142,21 +15225,18 @@ public class Sql92Parser extends Parser {
 		public Column_constraint_definitionContext column_constraint_definition(int i) {
 			return getRuleContext(Column_constraint_definitionContext.class,i);
 		}
-		public Column_definitionContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_column_definition; }
+		public ColumnDefContext(Column_definitionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumn_definition(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumnDef(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumn_definition(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumnDef(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumn_definition(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumnDef(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -15166,6 +15246,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 464, RULE_column_definition);
 		int _la;
 		try {
+			_localctx = new ColumnDefContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2317); column_name();
@@ -18511,6 +18592,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Simple_caseContext extends ParserRuleContext {
+		public Simple_caseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_simple_case; }
+	 
+		public Simple_caseContext() { }
+		public void copyFrom(Simple_caseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SimpleCaseContext extends Simple_caseContext {
 		public Case_operandContext case_operand() {
 			return getRuleContext(Case_operandContext.class,0);
 		}
@@ -18525,21 +18617,18 @@ public class Sql92Parser extends Parser {
 			return getRuleContext(Else_clauseContext.class,0);
 		}
 		public TerminalNode END() { return getToken(Sql92Parser.END, 0); }
-		public Simple_caseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_simple_case; }
+		public SimpleCaseContext(Simple_caseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSimple_case(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSimpleCase(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSimple_case(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSimpleCase(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSimple_case(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSimpleCase(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18549,6 +18638,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 566, RULE_simple_case);
 		int _la;
 		try {
+			_localctx = new SimpleCaseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2689); match(CASE);
@@ -18589,6 +18679,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Searched_caseContext extends ParserRuleContext {
+		public Searched_caseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_searched_case; }
+	 
+		public Searched_caseContext() { }
+		public void copyFrom(Searched_caseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SearchedCaseContext extends Searched_caseContext {
 		public List<Searched_when_clauseContext> searched_when_clause() {
 			return getRuleContexts(Searched_when_clauseContext.class);
 		}
@@ -18600,21 +18701,18 @@ public class Sql92Parser extends Parser {
 			return getRuleContext(Else_clauseContext.class,0);
 		}
 		public TerminalNode END() { return getToken(Sql92Parser.END, 0); }
-		public Searched_caseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_searched_case; }
+		public SearchedCaseContext(Searched_caseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSearched_case(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSearchedCase(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSearched_case(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSearchedCase(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSearched_case(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSearchedCase(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18624,6 +18722,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 568, RULE_searched_case);
 		int _la;
 		try {
+			_localctx = new SearchedCaseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2701); match(CASE);
@@ -18663,24 +18762,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Case_operandContext extends ParserRuleContext {
-		public Value_expressionContext value_expression() {
-			return getRuleContext(Value_expressionContext.class,0);
-		}
 		public Case_operandContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_case_operand; }
+	 
+		public Case_operandContext() { }
+		public void copyFrom(Case_operandContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CaseOperandContext extends Case_operandContext {
+		public Value_expressionContext value_expression() {
+			return getRuleContext(Value_expressionContext.class,0);
+		}
+		public CaseOperandContext(Case_operandContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCase_operand(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCaseOperand(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCase_operand(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCaseOperand(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCase_operand(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCaseOperand(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18689,6 +18796,7 @@ public class Sql92Parser extends Parser {
 		Case_operandContext _localctx = new Case_operandContext(_ctx, getState());
 		enterRule(_localctx, 570, RULE_case_operand);
 		try {
+			_localctx = new CaseOperandContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2712); value_expression();
@@ -18706,6 +18814,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Simple_when_clauseContext extends ParserRuleContext {
+		public Simple_when_clauseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_simple_when_clause; }
+	 
+		public Simple_when_clauseContext() { }
+		public void copyFrom(Simple_when_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SimpleWhenClauseContext extends Simple_when_clauseContext {
 		public ResultContext result() {
 			return getRuleContext(ResultContext.class,0);
 		}
@@ -18714,21 +18833,18 @@ public class Sql92Parser extends Parser {
 			return getRuleContext(When_operandContext.class,0);
 		}
 		public TerminalNode WHEN() { return getToken(Sql92Parser.WHEN, 0); }
-		public Simple_when_clauseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_simple_when_clause; }
+		public SimpleWhenClauseContext(Simple_when_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSimple_when_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSimpleWhenClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSimple_when_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSimpleWhenClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSimple_when_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSimpleWhenClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18737,6 +18853,7 @@ public class Sql92Parser extends Parser {
 		Simple_when_clauseContext _localctx = new Simple_when_clauseContext(_ctx, getState());
 		enterRule(_localctx, 572, RULE_simple_when_clause);
 		try {
+			_localctx = new SimpleWhenClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2714); match(WHEN);
@@ -18757,25 +18874,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Else_clauseContext extends ParserRuleContext {
-		public ResultContext result() {
-			return getRuleContext(ResultContext.class,0);
-		}
-		public TerminalNode ELSE() { return getToken(Sql92Parser.ELSE, 0); }
 		public Else_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_else_clause; }
+	 
+		public Else_clauseContext() { }
+		public void copyFrom(Else_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ElseClauseContext extends Else_clauseContext {
+		public ResultContext result() {
+			return getRuleContext(ResultContext.class,0);
+		}
+		public TerminalNode ELSE() { return getToken(Sql92Parser.ELSE, 0); }
+		public ElseClauseContext(Else_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterElse_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterElseClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitElse_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitElseClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitElse_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitElseClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18784,6 +18909,7 @@ public class Sql92Parser extends Parser {
 		Else_clauseContext _localctx = new Else_clauseContext(_ctx, getState());
 		enterRule(_localctx, 574, RULE_else_clause);
 		try {
+			_localctx = new ElseClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2719); match(ELSE);
@@ -18802,24 +18928,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class When_operandContext extends ParserRuleContext {
-		public Value_expressionContext value_expression() {
-			return getRuleContext(Value_expressionContext.class,0);
-		}
 		public When_operandContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_when_operand; }
+	 
+		public When_operandContext() { }
+		public void copyFrom(When_operandContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class WhenOperandContext extends When_operandContext {
+		public Value_expressionContext value_expression() {
+			return getRuleContext(Value_expressionContext.class,0);
+		}
+		public WhenOperandContext(When_operandContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterWhen_operand(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterWhenOperand(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitWhen_operand(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitWhenOperand(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitWhen_operand(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitWhenOperand(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -18828,6 +18962,7 @@ public class Sql92Parser extends Parser {
 		When_operandContext _localctx = new When_operandContext(_ctx, getState());
 		enterRule(_localctx, 576, RULE_when_operand);
 		try {
+			_localctx = new WhenOperandContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2722); value_expression();
@@ -21195,24 +21330,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Module_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Module_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_module_name; }
+	 
+		public Module_nameContext() { }
+		public void copyFrom(Module_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ModuleNameContext extends Module_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public ModuleNameContext(Module_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterModule_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterModuleName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitModule_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitModuleName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitModule_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitModuleName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -21221,6 +21364,7 @@ public class Sql92Parser extends Parser {
 		Module_nameContext _localctx = new Module_nameContext(_ctx, getState());
 		enterRule(_localctx, 658, RULE_module_name);
 		try {
+			_localctx = new ModuleNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(2946); identifier();
@@ -22182,24 +22326,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Schema_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Schema_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_schema_name; }
+	 
+		public Schema_nameContext() { }
+		public void copyFrom(Schema_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class SchemaNameContext extends Schema_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public SchemaNameContext(Schema_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSchema_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterSchemaName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSchema_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitSchemaName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSchema_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitSchemaName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -22208,6 +22360,7 @@ public class Sql92Parser extends Parser {
 		Schema_nameContext _localctx = new Schema_nameContext(_ctx, getState());
 		enterRule(_localctx, 682, RULE_schema_name);
 		try {
+			_localctx = new SchemaNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3019); identifier();
@@ -22225,24 +22378,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Catalog_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Catalog_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_catalog_name; }
+	 
+		public Catalog_nameContext() { }
+		public void copyFrom(Catalog_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CatalogNameContext extends Catalog_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public CatalogNameContext(Catalog_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCatalog_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCatalogName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCatalog_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCatalogName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCatalog_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCatalogName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -22251,6 +22412,7 @@ public class Sql92Parser extends Parser {
 		Catalog_nameContext _localctx = new Catalog_nameContext(_ctx, getState());
 		enterRule(_localctx, 684, RULE_catalog_name);
 		try {
+			_localctx = new CatalogNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3021); identifier();
@@ -22590,25 +22752,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Constraint_name_definitionContext extends ParserRuleContext {
-		public TerminalNode CONSTRAINT() { return getToken(Sql92Parser.CONSTRAINT, 0); }
-		public Constraint_nameContext constraint_name() {
-			return getRuleContext(Constraint_nameContext.class,0);
-		}
 		public Constraint_name_definitionContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_constraint_name_definition; }
+	 
+		public Constraint_name_definitionContext() { }
+		public void copyFrom(Constraint_name_definitionContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ConstraintNameDefContext extends Constraint_name_definitionContext {
+		public TerminalNode CONSTRAINT() { return getToken(Sql92Parser.CONSTRAINT, 0); }
+		public Constraint_nameContext constraint_name() {
+			return getRuleContext(Constraint_nameContext.class,0);
+		}
+		public ConstraintNameDefContext(Constraint_name_definitionContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterConstraint_name_definition(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterConstraintNameDef(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitConstraint_name_definition(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitConstraintNameDef(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitConstraint_name_definition(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitConstraintNameDef(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -22617,6 +22787,7 @@ public class Sql92Parser extends Parser {
 		Constraint_name_definitionContext _localctx = new Constraint_name_definitionContext(_ctx, getState());
 		enterRule(_localctx, 698, RULE_constraint_name_definition);
 		try {
+			_localctx = new ConstraintNameDefContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3051); match(CONSTRAINT);
@@ -22635,24 +22806,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Constraint_nameContext extends ParserRuleContext {
-		public Qualified_nameContext qualified_name() {
-			return getRuleContext(Qualified_nameContext.class,0);
-		}
 		public Constraint_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_constraint_name; }
+	 
+		public Constraint_nameContext() { }
+		public void copyFrom(Constraint_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ConstraintNameContext extends Constraint_nameContext {
+		public Qualified_nameContext qualified_name() {
+			return getRuleContext(Qualified_nameContext.class,0);
+		}
+		public ConstraintNameContext(Constraint_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterConstraint_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterConstraintName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitConstraint_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitConstraintName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitConstraint_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitConstraintName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -22661,6 +22840,7 @@ public class Sql92Parser extends Parser {
 		Constraint_nameContext _localctx = new Constraint_nameContext(_ctx, getState());
 		enterRule(_localctx, 700, RULE_constraint_name);
 		try {
+			_localctx = new ConstraintNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3054); qualified_name();
@@ -23530,25 +23710,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Collate_clauseContext extends ParserRuleContext {
-		public TerminalNode COLLATE() { return getToken(Sql92Parser.COLLATE, 0); }
-		public Collation_nameContext collation_name() {
-			return getRuleContext(Collation_nameContext.class,0);
-		}
 		public Collate_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_collate_clause; }
+	 
+		public Collate_clauseContext() { }
+		public void copyFrom(Collate_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CollateClauseContext extends Collate_clauseContext {
+		public TerminalNode COLLATE() { return getToken(Sql92Parser.COLLATE, 0); }
+		public Collation_nameContext collation_name() {
+			return getRuleContext(Collation_nameContext.class,0);
+		}
+		public CollateClauseContext(Collate_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCollate_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCollateClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCollate_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCollateClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCollate_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCollateClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -23557,6 +23745,7 @@ public class Sql92Parser extends Parser {
 		Collate_clauseContext _localctx = new Collate_clauseContext(_ctx, getState());
 		enterRule(_localctx, 732, RULE_collate_clause);
 		try {
+			_localctx = new CollateClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3141); match(COLLATE);
@@ -23575,24 +23764,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Collation_nameContext extends ParserRuleContext {
-		public Qualified_nameContext qualified_name() {
-			return getRuleContext(Qualified_nameContext.class,0);
-		}
 		public Collation_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_collation_name; }
+	 
+		public Collation_nameContext() { }
+		public void copyFrom(Collation_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CollationNameContext extends Collation_nameContext {
+		public Qualified_nameContext qualified_name() {
+			return getRuleContext(Qualified_nameContext.class,0);
+		}
+		public CollationNameContext(Collation_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCollation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCollationName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCollation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCollationName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCollation_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCollationName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -23601,6 +23798,7 @@ public class Sql92Parser extends Parser {
 		Collation_nameContext _localctx = new Collation_nameContext(_ctx, getState());
 		enterRule(_localctx, 734, RULE_collation_name);
 		try {
+			_localctx = new CollationNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3144); qualified_name();
@@ -23618,25 +23816,33 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class As_clauseContext extends ParserRuleContext {
-		public TerminalNode AS() { return getToken(Sql92Parser.AS, 0); }
-		public Column_nameContext column_name() {
-			return getRuleContext(Column_nameContext.class,0);
-		}
 		public As_clauseContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_as_clause; }
+	 
+		public As_clauseContext() { }
+		public void copyFrom(As_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class AsClauseContext extends As_clauseContext {
+		public TerminalNode AS() { return getToken(Sql92Parser.AS, 0); }
+		public Column_nameContext column_name() {
+			return getRuleContext(Column_nameContext.class,0);
+		}
+		public AsClauseContext(As_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterAs_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterAsClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitAs_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitAsClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitAs_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitAsClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -23645,6 +23851,7 @@ public class Sql92Parser extends Parser {
 		As_clauseContext _localctx = new As_clauseContext(_ctx, getState());
 		enterRule(_localctx, 736, RULE_as_clause);
 		try {
+			_localctx = new AsClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3146); match(AS);
@@ -23663,26 +23870,34 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Group_by_clauseContext extends ParserRuleContext {
+		public Group_by_clauseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_group_by_clause; }
+	 
+		public Group_by_clauseContext() { }
+		public void copyFrom(Group_by_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class GroupByClauseContext extends Group_by_clauseContext {
 		public TerminalNode BY() { return getToken(Sql92Parser.BY, 0); }
 		public Grouping_column_reference_listContext grouping_column_reference_list() {
 			return getRuleContext(Grouping_column_reference_listContext.class,0);
 		}
 		public TerminalNode GROUP() { return getToken(Sql92Parser.GROUP, 0); }
-		public Group_by_clauseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_group_by_clause; }
+		public GroupByClauseContext(Group_by_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterGroup_by_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterGroupByClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitGroup_by_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitGroupByClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitGroup_by_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitGroupByClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -23691,6 +23906,7 @@ public class Sql92Parser extends Parser {
 		Group_by_clauseContext _localctx = new Group_by_clauseContext(_ctx, getState());
 		enterRule(_localctx, 738, RULE_group_by_clause);
 		try {
+			_localctx = new GroupByClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3149); match(GROUP);
@@ -23831,26 +24047,34 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Order_by_clauseContext extends ParserRuleContext {
+		public Order_by_clauseContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_order_by_clause; }
+	 
+		public Order_by_clauseContext() { }
+		public void copyFrom(Order_by_clauseContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class OrderByClauseContext extends Order_by_clauseContext {
 		public Sort_specification_listContext sort_specification_list() {
 			return getRuleContext(Sort_specification_listContext.class,0);
 		}
 		public TerminalNode ORDER() { return getToken(Sql92Parser.ORDER, 0); }
 		public TerminalNode BY() { return getToken(Sql92Parser.BY, 0); }
-		public Order_by_clauseContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_order_by_clause; }
+		public OrderByClauseContext(Order_by_clauseContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterOrder_by_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterOrderByClause(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitOrder_by_clause(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitOrderByClause(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitOrder_by_clause(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitOrderByClause(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -23859,6 +24083,7 @@ public class Sql92Parser extends Parser {
 		Order_by_clauseContext _localctx = new Order_by_clauseContext(_ctx, getState());
 		enterRule(_localctx, 744, RULE_order_by_clause);
 		try {
+			_localctx = new OrderByClauseContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3165); match(ORDER);
@@ -25522,24 +25747,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Column_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Column_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_column_name; }
+	 
+		public Column_nameContext() { }
+		public void copyFrom(Column_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ColumnNameContext extends Column_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public ColumnNameContext(Column_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumn_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumnName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumn_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumnName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumn_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumnName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -25548,6 +25781,7 @@ public class Sql92Parser extends Parser {
 		Column_nameContext _localctx = new Column_nameContext(_ctx, getState());
 		enterRule(_localctx, 790, RULE_column_name);
 		try {
+			_localctx = new ColumnNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3284); identifier();
@@ -25565,6 +25799,17 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Column_name_listContext extends ParserRuleContext {
+		public Column_name_listContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_column_name_list; }
+	 
+		public Column_name_listContext() { }
+		public void copyFrom(Column_name_listContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class ColumnNamesContext extends Column_name_listContext {
 		public List<Column_nameContext> column_name() {
 			return getRuleContexts(Column_nameContext.class);
 		}
@@ -25575,21 +25820,18 @@ public class Sql92Parser extends Parser {
 		public TerminalNode COMMA(int i) {
 			return getToken(Sql92Parser.COMMA, i);
 		}
-		public Column_name_listContext(ParserRuleContext parent, int invokingState) {
-			super(parent, invokingState);
-		}
-		@Override public int getRuleIndex() { return RULE_column_name_list; }
+		public ColumnNamesContext(Column_name_listContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumn_name_list(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterColumnNames(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumn_name_list(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitColumnNames(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumn_name_list(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitColumnNames(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -25599,6 +25841,7 @@ public class Sql92Parser extends Parser {
 		enterRule(_localctx, 792, RULE_column_name_list);
 		int _la;
 		try {
+			_localctx = new ColumnNamesContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3286); column_name();
@@ -28844,24 +29087,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Cursor_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Cursor_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_cursor_name; }
+	 
+		public Cursor_nameContext() { }
+		public void copyFrom(Cursor_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CursorNameContext extends Cursor_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public CursorNameContext(Cursor_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCursor_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCursorName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCursor_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCursorName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCursor_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCursorName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -28870,6 +29121,7 @@ public class Sql92Parser extends Parser {
 		Cursor_nameContext _localctx = new Cursor_nameContext(_ctx, getState());
 		enterRule(_localctx, 904, RULE_cursor_name);
 		try {
+			_localctx = new CursorNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3573); identifier();
@@ -28887,24 +29139,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Correlation_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Correlation_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_correlation_name; }
+	 
+		public Correlation_nameContext() { }
+		public void copyFrom(Correlation_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CorrelationNameContext extends Correlation_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public CorrelationNameContext(Correlation_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCorrelation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterCorrelationName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCorrelation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitCorrelationName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCorrelation_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitCorrelationName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -28913,6 +29173,7 @@ public class Sql92Parser extends Parser {
 		Correlation_nameContext _localctx = new Correlation_nameContext(_ctx, getState());
 		enterRule(_localctx, 906, RULE_correlation_name);
 		try {
+			_localctx = new CorrelationNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3575); identifier();
@@ -28930,24 +29191,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Statement_nameContext extends ParserRuleContext {
-		public IdentifierContext identifier() {
-			return getRuleContext(IdentifierContext.class,0);
-		}
 		public Statement_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_statement_name; }
+	 
+		public Statement_nameContext() { }
+		public void copyFrom(Statement_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class StatementNameContext extends Statement_nameContext {
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
+		}
+		public StatementNameContext(Statement_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterStatement_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterStatementName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitStatement_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitStatementName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitStatement_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitStatementName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -28956,6 +29225,7 @@ public class Sql92Parser extends Parser {
 		Statement_nameContext _localctx = new Statement_nameContext(_ctx, getState());
 		enterRule(_localctx, 908, RULE_statement_name);
 		try {
+			_localctx = new StatementNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3577); identifier();
@@ -29162,24 +29432,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Domain_nameContext extends ParserRuleContext {
-		public Qualified_nameContext qualified_name() {
-			return getRuleContext(Qualified_nameContext.class,0);
-		}
 		public Domain_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_domain_name; }
+	 
+		public Domain_nameContext() { }
+		public void copyFrom(Domain_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class DomainNameContext extends Domain_nameContext {
+		public Qualified_nameContext qualified_name() {
+			return getRuleContext(Qualified_nameContext.class,0);
+		}
+		public DomainNameContext(Domain_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterDomain_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterDomainName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitDomain_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitDomainName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitDomain_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitDomainName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -29188,6 +29466,7 @@ public class Sql92Parser extends Parser {
 		Domain_nameContext _localctx = new Domain_nameContext(_ctx, getState());
 		enterRule(_localctx, 918, RULE_domain_name);
 		try {
+			_localctx = new DomainNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3594); qualified_name();
@@ -29364,24 +29643,32 @@ public class Sql92Parser extends Parser {
 	}
 
 	public static class Translation_nameContext extends ParserRuleContext {
-		public Qualified_nameContext qualified_name() {
-			return getRuleContext(Qualified_nameContext.class,0);
-		}
 		public Translation_nameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_translation_name; }
+	 
+		public Translation_nameContext() { }
+		public void copyFrom(Translation_nameContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class TranslationNameContext extends Translation_nameContext {
+		public Qualified_nameContext qualified_name() {
+			return getRuleContext(Qualified_nameContext.class,0);
+		}
+		public TranslationNameContext(Translation_nameContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterTranslation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).enterTranslationName(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitTranslation_name(this);
+			if ( listener instanceof Sql92Listener ) ((Sql92Listener)listener).exitTranslationName(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitTranslation_name(this);
+			if ( visitor instanceof Sql92Visitor ) return ((Sql92Visitor<? extends T>)visitor).visitTranslationName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -29390,6 +29677,7 @@ public class Sql92Parser extends Parser {
 		Translation_nameContext _localctx = new Translation_nameContext(_ctx, getState());
 		enterRule(_localctx, 926, RULE_translation_name);
 		try {
+			_localctx = new TranslationNameContext(_localctx);
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(3613); qualified_name();

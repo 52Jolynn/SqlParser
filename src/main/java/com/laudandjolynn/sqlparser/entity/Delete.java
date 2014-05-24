@@ -1,11 +1,10 @@
 package com.laudandjolynn.sqlparser.entity;
 
 /**
- * @author: Laud
- * @email: htd0324@gmail.com
- * @date: 2014年5月7日 下午9:20:24
- * @copyright: www.laudandjolynn.com
+ * User: tdhuang
+ * Date: 14-5-23 上午9:38
+ * Copyright: www.laudandjolynn.com
  */
-public class Delete extends DmlStatement {
+public class Delete extends AbstractSqlStatement {
 
 }

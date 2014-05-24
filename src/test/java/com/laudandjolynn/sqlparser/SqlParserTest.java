@@ -10,15 +10,20 @@
  ******************************************************************************/
 package com.laudandjolynn.sqlparser;
 
+import com.laudandjolynn.sqlparser.entity.SqlStatement;
 import junit.framework.TestCase;
 
 /**
  * 
- * @author: Laud
- * @email: htd0324@gmail.com
- * @date: 2014年5月7日 上午9:24:00
- * @copyright: www.laudandjolynn.com
+ * Author: Laud
+ * Email: htd0324@gmail.com
+ * Date: 2014年5月7日 上午9:24:00
+ * Copyright: www.laudandjolynn.com
  */
 public class SqlParserTest extends TestCase {
-
+    public void testParser() {
+        String sql = "select * from a order by a.id desc";
+        SqlStatement statement = SqlParser.getInstance().parse(sql);
+        System.out.println(statement);
+    }
 }

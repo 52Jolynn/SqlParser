@@ -1,5 +1,5 @@
-// Generated from G:/Code/java/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
-package com.laudandjolynn.sqlparser;
+// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
+package com.laudandjolynn.sqlparser.parser;
 import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -42,12 +42,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCommit_statement(@NotNull Sql92Parser.Commit_statementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#schema_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSchema_name(@NotNull Sql92Parser.Schema_nameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#query_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -77,12 +71,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrivileges(@NotNull Sql92Parser.PrivilegesContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#prepable_statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPrepable_statement(@NotNull Sql92Parser.Prepable_statementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#disconnect_object}.
 	 * @param ctx the parse tree
@@ -144,12 +132,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDrop_character_set_statement(@NotNull Sql92Parser.Drop_character_set_statementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#correlation_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCorrelation_name(@NotNull Sql92Parser.Correlation_nameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#condition_information}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -161,12 +143,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTime_zone(@NotNull Sql92Parser.Time_zoneContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#from_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitFrom_clause(@NotNull Sql92Parser.From_clauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#collation_definition}.
 	 * @param ctx the parse tree
@@ -198,6 +174,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExternal_translation(@NotNull Sql92Parser.External_translationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#quote_string_literal}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#external_collation_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -216,17 +198,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnsigned_value_specification(@NotNull Sql92Parser.Unsigned_value_specificationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#when_operand}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWhen_operand(@NotNull Sql92Parser.When_operandContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#current_timestamp_value_function}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCurrent_timestamp_value_function(@NotNull Sql92Parser.Current_timestamp_value_functionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#havingClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHavingClause(@NotNull Sql92Parser.HavingClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#assertion_definition}.
 	 * @param ctx the parse tree
@@ -282,12 +264,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTable_definition(@NotNull Sql92Parser.Table_definitionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#having_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHaving_clause(@NotNull Sql92Parser.Having_clauseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#character_string_type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -300,17 +276,23 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSet_function_type(@NotNull Sql92Parser.Set_function_typeContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#catalog_name}.
+	 * Visit a parse tree produced by {@link Sql92Parser#columnName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCatalog_name(@NotNull Sql92Parser.Catalog_nameContext ctx);
+	T visitColumnName(@NotNull Sql92Parser.ColumnNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#row_value_constructor_element}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitRow_value_constructor_element(@NotNull Sql92Parser.Row_value_constructor_elementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#correlationName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCorrelationName(@NotNull Sql92Parser.CorrelationNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#match_type}.
 	 * @param ctx the parse tree
@@ -401,6 +383,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSystem_descriptor_statement(@NotNull Sql92Parser.System_descriptor_statementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#whereClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhereClause(@NotNull Sql92Parser.WhereClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#timestamp_precision}.
 	 * @param ctx the parse tree
@@ -594,17 +582,11 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitString_value_expression(@NotNull Sql92Parser.String_value_expressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#module_name}.
+	 * Visit a parse tree produced by {@link Sql92Parser#update}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitModule_name(@NotNull Sql92Parser.Module_nameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#collate_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCollate_clause(@NotNull Sql92Parser.Collate_clauseContext ctx);
+	T visitUpdate(@NotNull Sql92Parser.UpdateContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#dynamic_select_statement}.
 	 * @param ctx the parse tree
@@ -660,12 +642,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCursor_specification(@NotNull Sql92Parser.Cursor_specificationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#simple_when_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSimple_when_clause(@NotNull Sql92Parser.Simple_when_clauseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#dynamic_fetch_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -689,12 +665,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitPrecision(@NotNull Sql92Parser.PrecisionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#where_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitWhere_clause(@NotNull Sql92Parser.Where_clauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#standard_collation_name}.
 	 * @param ctx the parse tree
@@ -744,12 +714,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitUnique_column_list(@NotNull Sql92Parser.Unique_column_listContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#group_by_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGroup_by_clause(@NotNull Sql92Parser.Group_by_clauseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#schema_name_clause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -761,6 +725,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSql_diagnostics_information(@NotNull Sql92Parser.Sql_diagnostics_informationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#whenOperand}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhenOperand(@NotNull Sql92Parser.WhenOperandContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#module_authorization_clause}.
 	 * @param ctx the parse tree
@@ -876,18 +846,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAlter_column_action(@NotNull Sql92Parser.Alter_column_actionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#translation_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#seperator}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSeperator(@NotNull Sql92Parser.SeperatorContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#prepable_sql_data_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -899,6 +857,18 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDirect_sql_statement(@NotNull Sql92Parser.Direct_sql_statementContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#cursorName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCursorName(@NotNull Sql92Parser.CursorNameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#searchedCase}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSearchedCase(@NotNull Sql92Parser.SearchedCaseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#external_translation_name}.
 	 * @param ctx the parse tree
@@ -983,6 +953,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDatetime_primary(@NotNull Sql92Parser.Datetime_primaryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#elseClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseClause(@NotNull Sql92Parser.ElseClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#variable_specification}.
 	 * @param ctx the parse tree
@@ -1098,6 +1074,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSchema_authorization_identifier(@NotNull Sql92Parser.Schema_authorization_identifierContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#orderByClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrderByClause(@NotNull Sql92Parser.OrderByClauseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#get_diagnostics_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1140,11 +1122,23 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitImplementation_defined_collation_name(@NotNull Sql92Parser.Implementation_defined_collation_nameContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#constraintNameDef}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstraintNameDef(@NotNull Sql92Parser.ConstraintNameDefContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#referencing_columns}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitReferencing_columns(@NotNull Sql92Parser.Referencing_columnsContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#insert}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitInsert(@NotNull Sql92Parser.InsertContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#unsigned_literal}.
 	 * @param ctx the parse tree
@@ -1188,11 +1182,11 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIn_value_list(@NotNull Sql92Parser.In_value_listContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#column_name}.
+	 * Visit a parse tree produced by {@link Sql92Parser#selectClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitColumn_name(@NotNull Sql92Parser.Column_nameContext ctx);
+	T visitSelectClause(@NotNull Sql92Parser.SelectClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#null_specification}.
 	 * @param ctx the parse tree
@@ -1326,17 +1320,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSql_data_statement(@NotNull Sql92Parser.Sql_data_statementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#fromClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitFromClause(@NotNull Sql92Parser.FromClauseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#match_value}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitMatch_value(@NotNull Sql92Parser.Match_valueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#direct_select_statement_multiple_rows}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDirect_select_statement_multiple_rows(@NotNull Sql92Parser.Direct_select_statement_multiple_rowsContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#scale}.
 	 * @param ctx the parse tree
@@ -1416,17 +1410,11 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTable_name(@NotNull Sql92Parser.Table_nameContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#as_clause}.
+	 * Visit a parse tree produced by {@link Sql92Parser#collateClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitAs_clause(@NotNull Sql92Parser.As_clauseContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#delete_statement_searched}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDelete_statement_searched(@NotNull Sql92Parser.Delete_statement_searchedContext ctx);
+	T visitCollateClause(@NotNull Sql92Parser.CollateClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#prepable_sql_schema_statement}.
 	 * @param ctx the parse tree
@@ -1446,17 +1434,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSql_diagnostics_statement(@NotNull Sql92Parser.Sql_diagnostics_statementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#domainName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDomainName(@NotNull Sql92Parser.DomainNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#interval_factor}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitInterval_factor(@NotNull Sql92Parser.Interval_factorContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#statement_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitStatement_name(@NotNull Sql92Parser.Statement_nameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#set_item_information}.
 	 * @param ctx the parse tree
@@ -1469,12 +1457,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitMumps_host_identifier(@NotNull Sql92Parser.Mumps_host_identifierContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#order_by_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitOrder_by_clause(@NotNull Sql92Parser.Order_by_clauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#sort_key}.
 	 * @param ctx the parse tree
@@ -1590,17 +1572,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitC_host_identifier(@NotNull Sql92Parser.C_host_identifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#domain_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDomain_name(@NotNull Sql92Parser.Domain_nameContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#actual_identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitActual_identifier(@NotNull Sql92Parser.Actual_identifierContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#constraintName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitConstraintName(@NotNull Sql92Parser.ConstraintNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#set_clause_list}.
 	 * @param ctx the parse tree
@@ -1631,12 +1613,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDrop_table_statement(@NotNull Sql92Parser.Drop_table_statementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#column_definition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitColumn_definition(@NotNull Sql92Parser.Column_definitionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#assertion_check}.
 	 * @param ctx the parse tree
@@ -1674,6 +1650,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExists_predicate(@NotNull Sql92Parser.Exists_predicateContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#caseOperand}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCaseOperand(@NotNull Sql92Parser.CaseOperandContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#standard_character_repertoire_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1685,12 +1667,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitEnd_field(@NotNull Sql92Parser.End_fieldContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#case_operand}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCase_operand(@NotNull Sql92Parser.Case_operandContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#update_rule}.
 	 * @param ctx the parse tree
@@ -1800,6 +1776,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitJoined_table(@NotNull Sql92Parser.Joined_tableContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#moduleName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitModuleName(@NotNull Sql92Parser.ModuleNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#datetime_field}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1842,23 +1824,11 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCharacter_value_expression(@NotNull Sql92Parser.Character_value_expressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#update_statement_searched}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitUpdate_statement_searched(@NotNull Sql92Parser.Update_statement_searchedContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#drop_assertion_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitDrop_assertion_statement(@NotNull Sql92Parser.Drop_assertion_statementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#cursor_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCursor_name(@NotNull Sql92Parser.Cursor_nameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#cast_target}.
 	 * @param ctx the parse tree
@@ -1902,12 +1872,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGet_item_information(@NotNull Sql92Parser.Get_item_informationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#insert_statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitInsert_statement(@NotNull Sql92Parser.Insert_statementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#join_type}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1938,6 +1902,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCast_operand(@NotNull Sql92Parser.Cast_operandContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#statementName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitStatementName(@NotNull Sql92Parser.StatementNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#connection_name}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -1949,6 +1919,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitCharacter_string_literal(@NotNull Sql92Parser.Character_string_literalContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#collationName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCollationName(@NotNull Sql92Parser.CollationNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#datetime_literal}.
 	 * @param ctx the parse tree
@@ -1973,6 +1949,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitQuery_primary(@NotNull Sql92Parser.Query_primaryContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#select}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSelect(@NotNull Sql92Parser.SelectContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#referential_constraint_definition}.
 	 * @param ctx the parse tree
@@ -2003,12 +1985,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitNon_join_query_expression(@NotNull Sql92Parser.Non_join_query_expressionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#column_name_list}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitColumn_name_list(@NotNull Sql92Parser.Column_name_listContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#translation_specification}.
 	 * @param ctx the parse tree
@@ -2136,11 +2112,23 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSet_domain_default_clause(@NotNull Sql92Parser.Set_domain_default_clauseContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#columnDef}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumnDef(@NotNull Sql92Parser.ColumnDefContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#bit_length_expression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitBit_length_expression(@NotNull Sql92Parser.Bit_length_expressionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#schemaName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSchemaName(@NotNull Sql92Parser.SchemaNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#set_descriptor_statement}.
 	 * @param ctx the parse tree
@@ -2190,6 +2178,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTransaction_access_mode(@NotNull Sql92Parser.Transaction_access_modeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#catalogName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCatalogName(@NotNull Sql92Parser.CatalogNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#ordering_specification}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2202,17 +2196,23 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitObject_name(@NotNull Sql92Parser.Object_nameContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#asClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAsClause(@NotNull Sql92Parser.AsClauseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#pli_host_identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitPli_host_identifier(@NotNull Sql92Parser.Pli_host_identifierContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#collation_name}.
+	 * Visit a parse tree produced by {@link Sql92Parser#groupByClause}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCollation_name(@NotNull Sql92Parser.Collation_nameContext ctx);
+	T visitGroupByClause(@NotNull Sql92Parser.GroupByClauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#join_condition}.
 	 * @param ctx the parse tree
@@ -2244,12 +2244,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPrepare_statement(@NotNull Sql92Parser.Prepare_statementContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#constraint_name_definition}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstraint_name_definition(@NotNull Sql92Parser.Constraint_name_definitionContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#describe_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2279,12 +2273,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSet_schema_statement(@NotNull Sql92Parser.Set_schema_statementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#query_specification}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitQuery_specification(@NotNull Sql92Parser.Query_specificationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#extract_expression}.
 	 * @param ctx the parse tree
@@ -2352,6 +2340,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTable_element(@NotNull Sql92Parser.Table_elementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#simpleWhenClause}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleWhenClause(@NotNull Sql92Parser.SimpleWhenClauseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#search_condition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2364,6 +2358,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLength(@NotNull Sql92Parser.LengthContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#delete}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDelete(@NotNull Sql92Parser.DeleteContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#date_literal}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2375,12 +2375,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#simple_case}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSimple_case(@NotNull Sql92Parser.Simple_caseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#prepable_dynamic_update_statement_positioned}.
 	 * @param ctx the parse tree
@@ -2526,6 +2520,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitGet_descriptor_information(@NotNull Sql92Parser.Get_descriptor_informationContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#translationName}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTranslationName(@NotNull Sql92Parser.TranslationNameContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#get_count}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2537,12 +2537,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitDynamic_close_statement(@NotNull Sql92Parser.Dynamic_close_statementContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#constraint_name}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitConstraint_name(@NotNull Sql92Parser.Constraint_nameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#national_character_string_type}.
 	 * @param ctx the parse tree
@@ -2574,17 +2568,17 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitColumn_constraint_definition(@NotNull Sql92Parser.Column_constraint_definitionContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#simpleCase}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleCase(@NotNull Sql92Parser.SimpleCaseContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#limited_collation_definition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitLimited_collation_definition(@NotNull Sql92Parser.Limited_collation_definitionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#else_clause}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitElse_clause(@NotNull Sql92Parser.Else_clauseContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#fetch_target_list}.
 	 * @param ctx the parse tree
@@ -2718,6 +2712,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDrop_schema_statement(@NotNull Sql92Parser.Drop_schema_statementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#preparable_statement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPreparable_statement(@NotNull Sql92Parser.Preparable_statementContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#sql_transaction_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2760,12 +2760,6 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSubquery(@NotNull Sql92Parser.SubqueryContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link Sql92Parser#searched_case}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSearched_case(@NotNull Sql92Parser.Searched_caseContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#sql_schema_manipulation_statement}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -2801,6 +2795,12 @@ public interface Sql92Visitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitStandard_translation_name(@NotNull Sql92Parser.Standard_translation_nameContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link Sql92Parser#columnNames}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitColumnNames(@NotNull Sql92Parser.ColumnNamesContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link Sql92Parser#set_connection_statement}.
 	 * @param ctx the parse tree

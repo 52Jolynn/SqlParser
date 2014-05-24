@@ -1,5 +1,5 @@
-// Generated from G:/Code/java/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
-package com.laudandjolynn.sqlparser;
+// Generated from D:/Work/Code/Intelij IDEA/SqlParser/src/main/resources\Sql92.g4 by ANTLR 4.x
+package com.laudandjolynn.sqlparser.parser;
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -77,18 +77,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSchema_name(@NotNull Sql92Parser.Schema_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSchema_name(@NotNull Sql92Parser.Schema_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterQuery_expression(@NotNull Sql92Parser.Query_expressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -144,18 +132,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrivileges(@NotNull Sql92Parser.PrivilegesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterPrepable_statement(@NotNull Sql92Parser.Prepable_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitPrepable_statement(@NotNull Sql92Parser.Prepable_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -281,18 +257,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCorrelation_name(@NotNull Sql92Parser.Correlation_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCorrelation_name(@NotNull Sql92Parser.Correlation_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCondition_information(@NotNull Sql92Parser.Condition_informationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -312,18 +276,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitTime_zone(@NotNull Sql92Parser.Time_zoneContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFrom_clause(@NotNull Sql92Parser.From_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFrom_clause(@NotNull Sql92Parser.From_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -389,6 +341,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitQuote_string_literal(@NotNull Sql92Parser.Quote_string_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterExternal_collation_name(@NotNull Sql92Parser.External_collation_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -425,18 +389,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterWhen_operand(@NotNull Sql92Parser.When_operandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWhen_operand(@NotNull Sql92Parser.When_operandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCurrent_timestamp_value_function(@NotNull Sql92Parser.Current_timestamp_value_functionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -444,6 +396,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCurrent_timestamp_value_function(@NotNull Sql92Parser.Current_timestamp_value_functionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterHavingClause(@NotNull Sql92Parser.HavingClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHavingClause(@NotNull Sql92Parser.HavingClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -557,18 +521,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterHaving_clause(@NotNull Sql92Parser.Having_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHaving_clause(@NotNull Sql92Parser.Having_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterCharacter_string_type(@NotNull Sql92Parser.Character_string_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -593,13 +545,13 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCatalog_name(@NotNull Sql92Parser.Catalog_nameContext ctx) { }
+	@Override public void enterColumnName(@NotNull Sql92Parser.ColumnNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCatalog_name(@NotNull Sql92Parser.Catalog_nameContext ctx) { }
+	@Override public void exitColumnName(@NotNull Sql92Parser.ColumnNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -612,6 +564,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitRow_value_constructor_element(@NotNull Sql92Parser.Row_value_constructor_elementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCorrelationName(@NotNull Sql92Parser.CorrelationNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCorrelationName(@NotNull Sql92Parser.CorrelationNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -792,6 +756,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSystem_descriptor_statement(@NotNull Sql92Parser.System_descriptor_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhereClause(@NotNull Sql92Parser.WhereClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhereClause(@NotNull Sql92Parser.WhereClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1181,25 +1157,13 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterModule_name(@NotNull Sql92Parser.Module_nameContext ctx) { }
+	@Override public void enterUpdate(@NotNull Sql92Parser.UpdateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitModule_name(@NotNull Sql92Parser.Module_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCollate_clause(@NotNull Sql92Parser.Collate_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCollate_clause(@NotNull Sql92Parser.Collate_clauseContext ctx) { }
+	@Override public void exitUpdate(@NotNull Sql92Parser.UpdateContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1313,18 +1277,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimple_when_clause(@NotNull Sql92Parser.Simple_when_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimple_when_clause(@NotNull Sql92Parser.Simple_when_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDynamic_fetch_statement(@NotNull Sql92Parser.Dynamic_fetch_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1368,18 +1320,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPrecision(@NotNull Sql92Parser.PrecisionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterWhere_clause(@NotNull Sql92Parser.Where_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitWhere_clause(@NotNull Sql92Parser.Where_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1481,18 +1421,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterGroup_by_clause(@NotNull Sql92Parser.Group_by_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGroup_by_clause(@NotNull Sql92Parser.Group_by_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSchema_name_clause(@NotNull Sql92Parser.Schema_name_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1512,6 +1440,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSql_diagnostics_information(@NotNull Sql92Parser.Sql_diagnostics_informationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterWhenOperand(@NotNull Sql92Parser.WhenOperandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitWhenOperand(@NotNull Sql92Parser.WhenOperandContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1745,30 +1685,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTranslation_name(@NotNull Sql92Parser.Translation_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSeperator(@NotNull Sql92Parser.SeperatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSeperator(@NotNull Sql92Parser.SeperatorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterPrepable_sql_data_statement(@NotNull Sql92Parser.Prepable_sql_data_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -1788,6 +1704,30 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDirect_sql_statement(@NotNull Sql92Parser.Direct_sql_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCursorName(@NotNull Sql92Parser.CursorNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCursorName(@NotNull Sql92Parser.CursorNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSearchedCase(@NotNull Sql92Parser.SearchedCaseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSearchedCase(@NotNull Sql92Parser.SearchedCaseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -1956,6 +1896,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDatetime_primary(@NotNull Sql92Parser.Datetime_primaryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterElseClause(@NotNull Sql92Parser.ElseClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitElseClause(@NotNull Sql92Parser.ElseClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2189,6 +2141,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterOrderByClause(@NotNull Sql92Parser.OrderByClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOrderByClause(@NotNull Sql92Parser.OrderByClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterGet_diagnostics_statement(@NotNull Sql92Parser.Get_diagnostics_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2273,6 +2237,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterConstraintNameDef(@NotNull Sql92Parser.ConstraintNameDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstraintNameDef(@NotNull Sql92Parser.ConstraintNameDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterReferencing_columns(@NotNull Sql92Parser.Referencing_columnsContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2280,6 +2256,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitReferencing_columns(@NotNull Sql92Parser.Referencing_columnsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterInsert(@NotNull Sql92Parser.InsertContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitInsert(@NotNull Sql92Parser.InsertContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2369,13 +2357,13 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterColumn_name(@NotNull Sql92Parser.Column_nameContext ctx) { }
+	@Override public void enterSelectClause(@NotNull Sql92Parser.SelectClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitColumn_name(@NotNull Sql92Parser.Column_nameContext ctx) { }
+	@Override public void exitSelectClause(@NotNull Sql92Parser.SelectClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2645,6 +2633,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterFromClause(@NotNull Sql92Parser.FromClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFromClause(@NotNull Sql92Parser.FromClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterMatch_value(@NotNull Sql92Parser.Match_valueContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2652,18 +2652,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMatch_value(@NotNull Sql92Parser.Match_valueContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDirect_select_statement_multiple_rows(@NotNull Sql92Parser.Direct_select_statement_multiple_rowsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDirect_select_statement_multiple_rows(@NotNull Sql92Parser.Direct_select_statement_multiple_rowsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2825,25 +2813,13 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterAs_clause(@NotNull Sql92Parser.As_clauseContext ctx) { }
+	@Override public void enterCollateClause(@NotNull Sql92Parser.CollateClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitAs_clause(@NotNull Sql92Parser.As_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDelete_statement_searched(@NotNull Sql92Parser.Delete_statement_searchedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDelete_statement_searched(@NotNull Sql92Parser.Delete_statement_searchedContext ctx) { }
+	@Override public void exitCollateClause(@NotNull Sql92Parser.CollateClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2885,6 +2861,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDomainName(@NotNull Sql92Parser.DomainNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDomainName(@NotNull Sql92Parser.DomainNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterInterval_factor(@NotNull Sql92Parser.Interval_factorContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -2892,18 +2880,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitInterval_factor(@NotNull Sql92Parser.Interval_factorContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterStatement_name(@NotNull Sql92Parser.Statement_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitStatement_name(@NotNull Sql92Parser.Statement_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -2928,18 +2904,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitMumps_host_identifier(@NotNull Sql92Parser.Mumps_host_identifierContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterOrder_by_clause(@NotNull Sql92Parser.Order_by_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitOrder_by_clause(@NotNull Sql92Parser.Order_by_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3173,18 +3137,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDomain_name(@NotNull Sql92Parser.Domain_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDomain_name(@NotNull Sql92Parser.Domain_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterActual_identifier(@NotNull Sql92Parser.Actual_identifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3192,6 +3144,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitActual_identifier(@NotNull Sql92Parser.Actual_identifierContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterConstraintName(@NotNull Sql92Parser.ConstraintNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitConstraintName(@NotNull Sql92Parser.ConstraintNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3252,18 +3216,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDrop_table_statement(@NotNull Sql92Parser.Drop_table_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColumn_definition(@NotNull Sql92Parser.Column_definitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColumn_definition(@NotNull Sql92Parser.Column_definitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3341,6 +3293,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCaseOperand(@NotNull Sql92Parser.CaseOperandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCaseOperand(@NotNull Sql92Parser.CaseOperandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterStandard_character_repertoire_name(@NotNull Sql92Parser.Standard_character_repertoire_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3360,18 +3324,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitEnd_field(@NotNull Sql92Parser.End_fieldContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCase_operand(@NotNull Sql92Parser.Case_operandContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCase_operand(@NotNull Sql92Parser.Case_operandContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3593,6 +3545,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterModuleName(@NotNull Sql92Parser.ModuleNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitModuleName(@NotNull Sql92Parser.ModuleNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDatetime_field(@NotNull Sql92Parser.Datetime_fieldContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3677,18 +3641,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterUpdate_statement_searched(@NotNull Sql92Parser.Update_statement_searchedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitUpdate_statement_searched(@NotNull Sql92Parser.Update_statement_searchedContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDrop_assertion_statement(@NotNull Sql92Parser.Drop_assertion_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3696,18 +3648,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDrop_assertion_statement(@NotNull Sql92Parser.Drop_assertion_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCursor_name(@NotNull Sql92Parser.Cursor_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCursor_name(@NotNull Sql92Parser.Cursor_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3797,18 +3737,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterInsert_statement(@NotNull Sql92Parser.Insert_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitInsert_statement(@NotNull Sql92Parser.Insert_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterJoin_type(@NotNull Sql92Parser.Join_typeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3869,6 +3797,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterStatementName(@NotNull Sql92Parser.StatementNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitStatementName(@NotNull Sql92Parser.StatementNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterConnection_name(@NotNull Sql92Parser.Connection_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -3888,6 +3828,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitCharacter_string_literal(@NotNull Sql92Parser.Character_string_literalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCollationName(@NotNull Sql92Parser.CollationNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCollationName(@NotNull Sql92Parser.CollationNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3936,6 +3888,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitQuery_primary(@NotNull Sql92Parser.Query_primaryContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSelect(@NotNull Sql92Parser.SelectContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSelect(@NotNull Sql92Parser.SelectContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -3996,18 +3960,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitNon_join_query_expression(@NotNull Sql92Parser.Non_join_query_expressionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterColumn_name_list(@NotNull Sql92Parser.Column_name_listContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitColumn_name_list(@NotNull Sql92Parser.Column_name_listContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4265,6 +4217,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterColumnDef(@NotNull Sql92Parser.ColumnDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumnDef(@NotNull Sql92Parser.ColumnDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBit_length_expression(@NotNull Sql92Parser.Bit_length_expressionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4272,6 +4236,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBit_length_expression(@NotNull Sql92Parser.Bit_length_expressionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSchemaName(@NotNull Sql92Parser.SchemaNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSchemaName(@NotNull Sql92Parser.SchemaNameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4373,6 +4349,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCatalogName(@NotNull Sql92Parser.CatalogNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCatalogName(@NotNull Sql92Parser.CatalogNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterOrdering_specification(@NotNull Sql92Parser.Ordering_specificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4397,6 +4385,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterAsClause(@NotNull Sql92Parser.AsClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitAsClause(@NotNull Sql92Parser.AsClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterPli_host_identifier(@NotNull Sql92Parser.Pli_host_identifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4409,13 +4409,13 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCollation_name(@NotNull Sql92Parser.Collation_nameContext ctx) { }
+	@Override public void enterGroupByClause(@NotNull Sql92Parser.GroupByClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCollation_name(@NotNull Sql92Parser.Collation_nameContext ctx) { }
+	@Override public void exitGroupByClause(@NotNull Sql92Parser.GroupByClauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4481,18 +4481,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterConstraint_name_definition(@NotNull Sql92Parser.Constraint_name_definitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConstraint_name_definition(@NotNull Sql92Parser.Constraint_name_definitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterDescribe_statement(@NotNull Sql92Parser.Describe_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4548,18 +4536,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSet_schema_statement(@NotNull Sql92Parser.Set_schema_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQuery_specification(@NotNull Sql92Parser.Query_specificationContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQuery_specification(@NotNull Sql92Parser.Query_specificationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -4697,6 +4673,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSimpleWhenClause(@NotNull Sql92Parser.SimpleWhenClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSimpleWhenClause(@NotNull Sql92Parser.SimpleWhenClauseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterSearch_condition(@NotNull Sql92Parser.Search_conditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4721,6 +4709,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDelete(@NotNull Sql92Parser.DeleteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDelete(@NotNull Sql92Parser.DeleteContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterDate_literal(@NotNull Sql92Parser.Date_literalContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -4740,18 +4740,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitSearched_when_clause(@NotNull Sql92Parser.Searched_when_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSimple_case(@NotNull Sql92Parser.Simple_caseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimple_case(@NotNull Sql92Parser.Simple_caseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -5045,6 +5033,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTranslationName(@NotNull Sql92Parser.TranslationNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTranslationName(@NotNull Sql92Parser.TranslationNameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterGet_count(@NotNull Sql92Parser.Get_countContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -5064,18 +5064,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitDynamic_close_statement(@NotNull Sql92Parser.Dynamic_close_statementContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterConstraint_name(@NotNull Sql92Parser.Constraint_nameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitConstraint_name(@NotNull Sql92Parser.Constraint_nameContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -5141,6 +5129,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterSimpleCase(@NotNull Sql92Parser.SimpleCaseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSimpleCase(@NotNull Sql92Parser.SimpleCaseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterLimited_collation_definition(@NotNull Sql92Parser.Limited_collation_definitionContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -5148,18 +5148,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLimited_collation_definition(@NotNull Sql92Parser.Limited_collation_definitionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterElse_clause(@NotNull Sql92Parser.Else_clauseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitElse_clause(@NotNull Sql92Parser.Else_clauseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -5429,6 +5417,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPreparable_statement(@NotNull Sql92Parser.Preparable_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPreparable_statement(@NotNull Sql92Parser.Preparable_statementContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterSql_transaction_statement(@NotNull Sql92Parser.Sql_transaction_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -5513,18 +5513,6 @@ public class Sql92BaseListener implements Sql92Listener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSearched_case(@NotNull Sql92Parser.Searched_caseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSearched_case(@NotNull Sql92Parser.Searched_caseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSql_schema_manipulation_statement(@NotNull Sql92Parser.Sql_schema_manipulation_statementContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -5592,6 +5580,18 @@ public class Sql92BaseListener implements Sql92Listener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitStandard_translation_name(@NotNull Sql92Parser.Standard_translation_nameContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterColumnNames(@NotNull Sql92Parser.ColumnNamesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitColumnNames(@NotNull Sql92Parser.ColumnNamesContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

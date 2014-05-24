@@ -6,19 +6,19 @@ package com.laudandjolynn.sqlparser.entity;
  * Copyright: www.laudandjolynn.com
  */
 public abstract class AbstractSqlStatement implements SqlStatement {
-	protected String sql = null;
+    protected String sql = null;
 
-    public AbstractSqlStatement(){
+    public AbstractSqlStatement() {
     }
 
     public AbstractSqlStatement(String sql) {
         this.sql = sql;
     }
 
-	@Override
-	public String getSql() {
-		return sql;
-	}
+    @Override
+    public String getSql() {
+        return sql;
+    }
 
     public void setSql(String sql) {
         this.sql = sql;

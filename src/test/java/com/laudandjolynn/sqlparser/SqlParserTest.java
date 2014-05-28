@@ -10,6 +10,10 @@
  ******************************************************************************/
 package com.laudandjolynn.sqlparser;
 
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.tree.ParseTree;
+
 import junit.framework.TestCase;
 
 /**
@@ -21,4 +25,20 @@ import junit.framework.TestCase;
  */
 public class SqlParserTest extends TestCase {
 
+	public static void parseSQL(String sql){
+		ANTLRInputStream input = new ANTLRInputStream(sql);// create a CharStream that reads from standard input
+		Sql92ParserDDLLexer lexer = new Sql92ParserDDLLexer(input);// create a lexer that feeds off of input CharStream
+		CommonTokenStream tokenStream = new CommonTokenStream(lexer);// create a buffer of tokens pulled from the lexer
+		Sql92ParserDDLParser parser = new Sql92ParserDDLParser(tokenStream);// create a parser that feeds off the tokens buffer
+		ParseTree tree = parser.sql_procedure_statement();
+		System.out.println("@@"+sql);
+		System.out.println("tree.toStringTree(parser):"+tree.toStringTree(parser));
+		System.out.println();
+	}
+	
+	public void testDDL(){
+		//sql_schema_definition_statement-->schema_definition
+		String sql = "CREATE SCHEMA myschema";
+		SqlParserTest.parseSQL(sql);
+	}
 }

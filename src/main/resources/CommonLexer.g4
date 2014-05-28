@@ -19,6 +19,7 @@ DOUBLE_QUOTE : '"';
 PERCENT : '%';
 AMPERSAND : '&';
 QUOTE : '\'';
+fragment QUOTE2 : '\'';
 LEFT_PAREN : '(';
 RIGHT_PAREN : ')';
 ASTERISK : '*';

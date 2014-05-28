@@ -350,8 +350,7 @@ update_statement_searched : 'UPDATE' table_name 'SET' set_clause_list ('WHERE' s
 //sql transaction
 sql_transaction_statement
 :
-	sql_transaction_statement
-	| set_constraints_mode_statement
+	set_constraints_mode_statement
 	| commit_statement
 	| rollback_statement
 ;

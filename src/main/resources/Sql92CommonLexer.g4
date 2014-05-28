@@ -31,9 +31,10 @@ fragment
 //非双引号字符
 fragment
     NONDOUBLEQUOTE_CHARACTER : ~'"';
+
 //'' 单引号
 fragment
-    QUOTE_SYMBOL : QUOTE QUOTE;
+    QUOTE_SYMBOL : QUOTE2 QUOTE2;
 //"" 双引号
 fragment
     DOUBLEQUOTE_SYMBOL : DOUBLE_QUOTE DOUBLE_QUOTE;
@@ -41,9 +42,9 @@ fragment
     CHARACTER_REPRESENTATION : NONQUOTE_CHARACTER|QUOTE_SYMBOL;
 
 //操作符
-NOT_EQ : '<>';
-GREATER_THAN_OR_EQ : '>=';
-LESS_THAN_OR_QE : '<=';
+//NOT_EQ : '<>';
+//GREATER_THAN_OR_EQ : '>=';
+//LESS_THAN_OR_EQ : '<=';
 CONCATENATION : '||';
 DOUBLE_PERIOD : '..';
 

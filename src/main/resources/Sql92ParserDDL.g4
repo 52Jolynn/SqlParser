@@ -113,12 +113,6 @@ regular_identifier
 	IDENTIFIER_BODY
 ;
 
-IDENTIFIER_BODY
-:
-	IDENTIFIER_START (( UNDERSCORE | IDENTIFIER_PART )*)?
-;
-
-
 introducer
 :
 	UNDERSCORE
@@ -334,7 +328,7 @@ interval_fractional_seconds_precision    :UNSIGNED_INTEGER;
 
 single_datetime_field:
         non_second_datetime_field ( LEFT_PAREN interval_leading_field_precision RIGHT_PAREN )?
-     | SECOND ( LEFT_PAREN interval_leading_field_precision ( <comma> LEFT_PAREN interval_fractional_seconds_precision )? RIGHT_PAREN )?
+     | SECOND ( LEFT_PAREN interval_leading_field_precision ( COMMA LEFT_PAREN interval_fractional_seconds_precision )? RIGHT_PAREN )?
 ;
 
 domain_name

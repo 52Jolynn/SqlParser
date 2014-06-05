@@ -108,11 +108,6 @@ time_interval    :
      |     seconds_value
 ;
 
-regular_identifier
-:
-	IDENTIFIER_BODY
-;
-
 introducer
 :
 	UNDERSCORE
@@ -125,7 +120,7 @@ identifier
 	)? ACTUAL_IDENTIFIER
 ;
 
-fragment
+//ACTUAL_IDENTIFIER : REGULAR_IDENTIFIER | DELIMITED_IDENTIFIER
 ACTUAL_IDENTIFIER
 :
 	REGULAR_IDENTIFIER

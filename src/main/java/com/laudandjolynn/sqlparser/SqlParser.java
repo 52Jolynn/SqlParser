@@ -34,7 +34,7 @@ public class SqlParser {
     private final static Logger logger = LoggerFactory.getLogger(SqlParser.class);
     private final static SqlParser parser = new SqlParser();
 
-    private SqlParser(){
+    private SqlParser() {
     }
 
     public static SqlParser getInstance() {
@@ -43,6 +43,7 @@ public class SqlParser {
 
     /**
      * 解析sql
+     *
      * @param sql SQL语句
      * @return
      */
@@ -60,8 +61,10 @@ public class SqlParser {
 
         SqlTreeAlterVisitorFinder finder = new SqlTreeAlterVisitorFinder(sql, tree);
         AbstractSqlStatementVisitor visitor = finder.find();
-
-        return (SqlStatement)tree.accept(visitor);
+        if (visitor != null) {
+            return (SqlStatement) tree.accept(visitor);
+        }
+        return null;
     }
 
     private class SqlTreeAlterVisitorFinder extends Sql92BaseVisitor<Void> {

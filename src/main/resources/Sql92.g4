@@ -309,7 +309,7 @@ select_sublist :derived_column|table_name PERIOD ASTERISK;
 derived_column : value_expression as_clause?;
 
 select_target_list : target_specification (COMMA target_specification)*;
-table_expression : from_clause where_clause? group_by_clause? having_clause?;
+table_expression : from_clause? where_clause? group_by_clause? having_clause?;
 
 //from clause
 from_clause : FROM table_reference (COMMA table_reference)* #fromClause;
